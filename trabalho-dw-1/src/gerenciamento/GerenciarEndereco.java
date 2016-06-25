@@ -40,6 +40,8 @@ public class GerenciarEndereco {
         endereco.setBairro(bairro);
         endereco.setCidade(cidade);
         endereco.setEstado(estado);
+        endereco.setCep(cep);
+        endereco.setComplemento(complemento);
         
         return endereco;
     }    

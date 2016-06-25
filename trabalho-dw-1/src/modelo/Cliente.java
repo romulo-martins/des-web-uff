@@ -75,6 +75,13 @@ public class Cliente {
         this.endereco = endereco;
     }
     
-    
-    
+    @Override
+    public String toString() {
+        return "Nome: " + getNome() + "\n" +
+               "Email: " + getEmail() + "\n" +
+                "Telefone: " + getTelefone() + "\n"  + 
+                "Data de nascimento: " + getDataDeNascimento() + "\n" +
+                "CPF: " + getCpf() + "\n" +
+                "Endereco: " + getEndereco().toString();
+    }   
 }

@@ -56,4 +56,11 @@ public class GerenciarCliente {
     public List<Cliente> obterClientesCadastrados() {
         return this.clientes;
     }
+    
+    public void listarClientesCadastrados() {
+        System.out.println("----- Clientes Cadastrados -----");
+        for(Cliente cliente : this.clientes) {
+            System.out.println(cliente);
+        }
+    }
 }
