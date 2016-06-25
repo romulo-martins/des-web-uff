@@ -17,7 +17,7 @@ public class Cliente {
     private String telefone;
     private String dataDeNascimento; // deixei como String para facilitar mais dps podemos trocar para Calendar
     private String cpf;
-    private Endereco endereco;
+    private String endereco;
 
     public int getId() {
         return id;
@@ -67,21 +67,12 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    public Endereco getEndereco() {
+    public String getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    
-    @Override
-    public String toString() {
-        return "Nome: " + getNome() + "\n" +
-               "Email: " + getEmail() + "\n" +
-                "Telefone: " + getTelefone() + "\n"  + 
-                "Data de nascimento: " + getDataDeNascimento() + "\n" +
-                "CPF: " + getCpf() + "\n" +
-                "Endereco: " + getEndereco().toString();
-    }   
+      
 }

@@ -5,8 +5,6 @@
  */
 package modelo;
 
-import java.util.Calendar;
-
 /**
  *
  * @author Romulo
@@ -15,11 +13,11 @@ public class Evento {
     
     private int id;
     private String nome;
-    private String tipo;
+    private TipoEvento tipo;
     private String descricao;
-    private Calendar data;
+    private String data;
     private String hora; // muda para Date?
-    private Endereco endereco;
+    private String local;
 
     public int getId() {
         return id;
@@ -37,11 +35,11 @@ public class Evento {
         this.nome = nome;
     }
 
-    public String getTipo() {
+    public TipoEvento getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipoEvento tipo) {
         this.tipo = tipo;
     }
 
@@ -53,11 +51,11 @@ public class Evento {
         this.descricao = descricao;
     }
 
-    public Calendar getData() {
+    public String getData() {
         return data;
     }
 
-    public void setData(Calendar data) {
+    public void setData(String data) {
         this.data = data;
     }
 
@@ -69,13 +67,12 @@ public class Evento {
         this.hora = hora;
     }
 
-    public Endereco getEndereco() {
-        return endereco;
+    public String getLocal() {
+        return local;
     }
 
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setLocal(String local) {
+        this.local = local;
     }
-    
     
 }

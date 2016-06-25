@@ -9,7 +9,7 @@ package modelo;
  *
  * @author Romulo
  */
-public class Ticket {
+public class Ingresso {
     
     private int id;
     private double preco;

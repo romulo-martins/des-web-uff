@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import modelo.Cliente;
-import modelo.Endereco;
 
 /**
  *
@@ -23,7 +22,7 @@ public class GerenciarCliente {
     public GerenciarCliente() {
         this.clientes = new ArrayList<>();
         sc = new Scanner(System.in);
-    }         
+    }   
     
     public void cadastrar() {
         System.out.println("----- Informe os dados do Cliente -----");
@@ -38,9 +37,8 @@ public class GerenciarCliente {
         System.out.println("Data de Nascimento: ");
         String dataDeNascimento = sc.nextLine();
         System.out.println("Endereco: ");
+        String endereco = sc.nextLine();
         
-        GerenciarEndereco ge = new GerenciarEndereco();
-        Endereco endereco = ge.cadastrar();
         
         Cliente cliente  = new Cliente();
         cliente.setNome(nome);
@@ -52,12 +50,14 @@ public class GerenciarCliente {
         
         this.clientes.add(cliente);
     }
-    
-    public List<Cliente> obterClientesCadastrados() {
-        return this.clientes;
+
+    // metodo para popular a base de clientes
+    public void seedClientes(List<Cliente> clientes) {
+        this.clientes.addAll(clientes);
     }
     
-    public void listarClientesCadastrados() {
+    // metodo para exibir no console os clientes cadastrados
+    public void listarClientes() {
         System.out.println("----- Clientes Cadastrados -----");
         for(Cliente cliente : this.clientes) {
             System.out.println(cliente);

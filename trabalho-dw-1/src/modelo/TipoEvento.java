@@ -9,6 +9,6 @@ package modelo;
  *
  * @author Romulo
  */
-public class Historico {  
-    
+public enum TipoEvento {
+    Cinema, Show, Teatro
 }
