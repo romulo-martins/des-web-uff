@@ -11,6 +11,7 @@ package modelo;
  */
 public class Endereco {
     
+    private int id;
     private String rua;
     private String bairro;
     private String cidade;
@@ -18,6 +19,14 @@ public class Endereco {
     private String estado;
     private String pais;
     private String complemento;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getRua() {
         return rua;

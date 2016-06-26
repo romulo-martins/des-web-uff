@@ -9,12 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 import modelo.Cliente;
 import modelo.Evento;
-import modelo.TipoEvento;
+import tipos.TipoEvento;
 
 /**
  *
  * @author Romulo
  */
+
 // Essa popula na memória dados para fazer os testes do sistema
 public class Seed {
 

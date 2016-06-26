@@ -9,6 +9,7 @@ package modelo;
  *
  * @author Romulo
  */
+
 public class Cliente {
     
     private int id;
@@ -17,7 +18,9 @@ public class Cliente {
     private String telefone;
     private String dataDeNascimento; // deixei como String para facilitar mais dps podemos trocar para Calendar
     private String cpf;
-    private String endereco;
+    
+    private int idEndereco; // chave estrangeira para o endereço
+    private String endereco; //
 
     public int getId() {
         return id;
@@ -74,5 +77,6 @@ public class Cliente {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-      
+    
+    
 }

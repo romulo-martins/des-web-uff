@@ -5,10 +5,27 @@
  */
 package modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Romulo
  */
 public class Historico {  
+    
+    private List<Compra> compras;
+    
+    public Historico() {
+        this.compras = new ArrayList<>();
+    }
+    
+    public void adiciona(Compra compra) {
+        this.compras.add(compra);
+    }
+    
+    public List<Compra> getHistoricoDeCompras() {
+        return this.compras;
+    }
     
 }
