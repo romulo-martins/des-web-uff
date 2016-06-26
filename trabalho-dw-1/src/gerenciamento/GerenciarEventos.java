@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import modelo.Evento;
+import modelo.Ingresso;
 
 /**
  *
@@ -23,18 +24,23 @@ public class GerenciarEventos {
         this.eventos = new ArrayList<>();
     }
 
-
-    //
+    // 
     public void seedEventos(List<Evento> eventos) {
         this.eventos.addAll(eventos);
     }
 
     // metodo para exibir no console os eventos cadastrados
     public void listarEventos() {
-        System.out.println("----- Eventos -----");
         for (Evento evento : this.eventos) {
             System.out.println(evento);
         }
+    }
+    
+    public Ingresso getIngresso(int idEvento) {
+        Evento evento = this.eventos.get(idEvento - 1);
+        int quantidadeDeIngressos = evento.getQuantidadeDeIngressos();
+        evento.setQuantidadeDeIngressos(quantidadeDeIngressos - 1);
+        return evento.getIngresso();
     }
 
     public List<Evento> gerarCatalogo() {
@@ -43,11 +49,5 @@ public class GerenciarEventos {
         return resp;
 
     }
-
-    
-
-
-
-
 
 }

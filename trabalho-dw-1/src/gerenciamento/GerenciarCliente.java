@@ -13,6 +13,7 @@ import modelo.Cliente;
  *
  * @author Romulo
  */
+
 public class GerenciarCliente {
     
     private List<Cliente> clientes;    
@@ -24,7 +25,20 @@ public class GerenciarCliente {
     public void cadastrar(Cliente cliente) {
         this.clientes.add(cliente);
     }
-
+    
+    public Cliente getCliente(int id) {
+        return this.clientes.get(id - 1);
+    }
+    
+    public Cliente getCliente(String nome) {
+        for(Cliente c : this.clientes) {
+            if(c.getNome().contains(nome)) {
+                return c;
+            }
+        }
+        return null;
+    }
+    
     // metodo para popular a base de clientes
     public void seedClientes(List<Cliente> clientes) {
         this.clientes.addAll(clientes);

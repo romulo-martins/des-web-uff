@@ -25,6 +25,25 @@ public class Evento {
     private String local; // mudei a classe para tipo String para cortar o scopo
     
     private int quantidadeDeIngressos;
+    
+    private int idIngresso;
+    private Ingresso ingresso;
+
+    public int getIdIngresso() {
+        return idIngresso;
+    }
+
+    public void setIdIngresso(int idIngresso) {
+        this.idIngresso = idIngresso;
+    }
+
+    public Ingresso getIngresso() {
+        return ingresso;
+    }
+
+    public void setIngresso(Ingresso ingresso) {
+        this.ingresso = ingresso;
+    }
 
     public int getIdLocal() {
         return idLocal;
@@ -98,4 +117,15 @@ public class Evento {
         this.local = local;
     }
     
+    @Override
+    public String toString() {
+        return "Cod: " + getId() + "\n" +
+                "Nome: " + getNome() + "\n" +
+                "Tipo: " + getTipo() + "\n" +
+                "Descrição: " + getDescricao() + "\n" +
+                "Data: " + getData() + "\n" +
+                "Hora: " + getHora() + "\n" +
+                "Local: " + getLocal() + "\n" + 
+                "Quantidade de Ingressos: " + getQuantidadeDeIngressos()+ "\n";
+    }
 }

@@ -9,16 +9,15 @@ package modelo;
  *
  * @author Romulo
  */
-
 public class Cliente {
-    
+
     private int id;
     private String nome;
     private String email;
     private String telefone;
     private String dataDeNascimento; // deixei como String para facilitar mais dps podemos trocar para Calendar
     private String cpf;
-    
+
     private int idEndereco; // chave estrangeira para o endereço
     private String endereco; //
 
@@ -77,6 +76,16 @@ public class Cliente {
     public void setEndereco(String endereco) {
         this.endereco = endereco;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "Cod: " + getId() + "\n"
+                + "Nome: " + getNome() + "\n"
+                + "Email: " + getEmail() + "\n"
+                + "Telefone: " + getTelefone() + "\n"
+                + "Data de nascimento: " + getDataDeNascimento() + "\n"
+                + "CPF: " + getCpf() + "\n"
+                + "Endereço: " + getEndereco() + "\n";
+    }
+
 }

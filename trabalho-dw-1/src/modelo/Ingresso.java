@@ -14,7 +14,7 @@ import tipos.TipoIngresso;
 public class Ingresso {
     
     private int id;
-    private double preco;
+    private int preco;
     private TipoIngresso tipo;
     private Evento evento;
 
@@ -30,7 +30,7 @@ public class Ingresso {
         return preco;
     }
 
-    public void setPreco(double preco) {
+    public void setPreco(int preco) {
         this.preco = preco;
     }
 
@@ -49,4 +49,5 @@ public class Ingresso {
     public void setEvento(Evento evento) {
         this.evento = evento;
     }
+    
 }
