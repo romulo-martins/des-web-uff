@@ -23,7 +23,7 @@ public class GerenciarEventos {
         this.eventos = new ArrayList<>();
     }
 
-<<<<<<< HEAD
+
     //
     public void seedEventos(List<Evento> eventos) {
         this.eventos.addAll(eventos);
@@ -50,10 +50,4 @@ public class GerenciarEventos {
 
 
 
-=======
-    public void seedEventos(List<Evento> eventos) {
-        this.eventos.addAll(eventos);
-    }
-    
->>>>>>> d66a54607a60a8a7b49fba670c4bb01dd8d2c99a
 }
