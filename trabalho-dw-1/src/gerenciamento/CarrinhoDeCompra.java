@@ -5,13 +5,17 @@
  */
 package modelo;
 
+package gerenciamento;
+
 import java.util.ArrayList;
 import java.util.List;
+import modelo.Ingresso;
 
 /**
  *
  * @author Romulo
  */
+
 public class CarrinhoDeCompra {
     
     private List<Ingresso> ingressos;
@@ -26,6 +30,10 @@ public class CarrinhoDeCompra {
     
     public void remover(Ingresso ingresso) {
         this.ingressos.remove(ingresso);
+    }
+    
+    public List<Ingresso> getIngressos() {
+        return this.ingressos;
     }
     
 }

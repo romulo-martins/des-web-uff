@@ -5,19 +5,42 @@
  */
 package modelo;
 
+import tipos.TipoEvento;
+
 /**
  *
  * @author Romulo
  */
+
 public class Evento {
     
     private int id;
     private String nome;
     private TipoEvento tipo;
     private String descricao;
-    private String data;
+    private String data; // muda para Date?
     private String hora; // muda para Date?
-    private String local;
+    
+    private int idLocal; // chave estrangeira de local
+    private String local; // mudei a classe para tipo String para cortar o scopo
+    
+    private int quantidadeDeIngressos;
+
+    public int getIdLocal() {
+        return idLocal;
+    }
+
+    public void setIdLocal(int idLocal) {
+        this.idLocal = idLocal;
+    }
+
+    public int getQuantidadeDeIngressos() {
+        return quantidadeDeIngressos;
+    }
+
+    public void setQuantidadeDeIngressos(int quantidadeDeIngressos) {
+        this.quantidadeDeIngressos = quantidadeDeIngressos;
+    }
 
     public int getId() {
         return id;

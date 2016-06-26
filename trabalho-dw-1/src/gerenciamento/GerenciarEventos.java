@@ -8,23 +8,22 @@ package gerenciamento;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 import modelo.Evento;
 
 /**
  *
  * @author Romulo
  */
+
 public class GerenciarEventos {
 
     private List<Evento> eventos;
-    private Scanner sc;
 
     public GerenciarEventos() {
         this.eventos = new ArrayList<>();
-        sc = new Scanner(System.in);
     }
 
+<<<<<<< HEAD
     //
     public void seedEventos(List<Evento> eventos) {
         this.eventos.addAll(eventos);
@@ -51,4 +50,10 @@ public class GerenciarEventos {
 
 
 
+=======
+    public void seedEventos(List<Evento> eventos) {
+        this.eventos.addAll(eventos);
+    }
+    
+>>>>>>> d66a54607a60a8a7b49fba670c4bb01dd8d2c99a
 }
