@@ -18,7 +18,10 @@ public class Cliente {
     private String telefone;
     private String dataDeNascimento; // deixei como String para facilitar mais dps podemos trocar para Calendar
     private String cpf;
+    private String usuario;
+    private String senha;
     
+    private Historico historico;
     private int idEndereco; // chave estrangeira para o endereço
     private String endereco; //
 
@@ -76,6 +79,30 @@ public class Cliente {
 
     public void setEndereco(String endereco) {
         this.endereco = endereco;
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
+    public Historico getHistorico() {
+        return historico;
+    }
+
+    public void setHistorico(Historico historico) {
+        this.historico = historico;
     }
     
     
