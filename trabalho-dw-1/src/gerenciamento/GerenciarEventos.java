@@ -6,6 +6,7 @@
 package gerenciamento;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 import modelo.Evento;
@@ -25,16 +26,29 @@ public class GerenciarEventos {
     }
 
     //
-    public void seedClientes(List<Evento> eventos) {
+    public void seedEventos(List<Evento> eventos) {
         this.eventos.addAll(eventos);
     }
 
     // metodo para exibir no console os eventos cadastrados
-    public void listarClientes() {
+    public void listarEventos() {
         System.out.println("----- Eventos -----");
         for (Evento evento : this.eventos) {
             System.out.println(evento);
         }
     }
+
+    public List<Evento> gerarCatalogo() {
+        List<Evento> resp = new ArrayList<>();
+        Collections.copy(eventos, resp);
+        return resp;
+
+    }
+
+    
+
+
+
+
 
 }
