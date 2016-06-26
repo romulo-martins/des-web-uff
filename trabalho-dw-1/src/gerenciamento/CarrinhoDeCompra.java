@@ -7,6 +7,7 @@
 package gerenciamento;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import modelo.Ingresso;
 
@@ -32,7 +33,19 @@ public class CarrinhoDeCompra {
     }
     
     public List<Ingresso> getIngressos() {
-        return this.ingressos;
+        List<Ingresso> resp = new ArrayList<>();
+        Collections.copy(this.ingressos, resp);
+        return resp;
+    }
+    
+    @Override
+    public String toString() {
+        String resp = "";
+        for(Ingresso ingresso : this.ingressos) {
+            resp += "Nome: " + ingresso.getEvento().getNome() + ", " 
+                   + "Valor: " + ingresso.getPreco() + "\n";
+        }
+        return resp;
     }
     
 }
