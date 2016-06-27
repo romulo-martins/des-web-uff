@@ -105,8 +105,6 @@ public class Cliente {
     public void setHistorico(Historico historico) {
         this.historico = historico;
     }
-    
-    
 
     @Override
     public String toString() {

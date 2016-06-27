@@ -34,8 +34,8 @@ public class Sessao {
     }
 
     public boolean fazerLogin(String usuario, String senha) {
-        client = gerenteCliente.getCliente(usuario);
-        if (client != null && client.getSenha().equals(senha)) {
+        this.client = gerenteCliente.getUsuario(usuario);
+        if (this.client != null && client.getSenha().equals(senha)) {
             logado = true;
         }
         return logado;
