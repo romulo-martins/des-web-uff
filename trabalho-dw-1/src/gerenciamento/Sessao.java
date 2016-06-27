@@ -77,11 +77,9 @@ public class Sessao {
         if (qtd < 1 || qtd > 4) {
             return false;
         }
-
-        for (int i = 0; i < qtd - 1; i++) {
+        for (int i = 0; i < qtd; i++) {            
             kart.adicionar(gerenteEvento.getIngresso(eventoID));
         }
-
         return true;
     }
 
