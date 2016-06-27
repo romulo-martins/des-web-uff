@@ -37,8 +37,8 @@ public class Main {
         System.out.println(c);
 
         //Flavia faz login para iniciar sessão
-        Sessao se = new Sessao();
-        se.fazerLogin(c.getNome(), c.getSenha());
+        Sessao se = new Sessao(gc, ge);
+        se.fazerLogin(c.getUsuario(), c.getSenha());
 
         // Flavia escolhe uma das opções de evento e adciona no carrinho de compras
         System.out.println("Catálogo");
@@ -52,6 +52,8 @@ public class Main {
         //Flavia verifica o histórico para ver sa compra foi feita
         System.out.println("Histórico");
         se.exibirHistorico();
+        
+        System.out.println(ge.getEvento(4));        
                 
     }
 }

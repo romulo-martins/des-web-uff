@@ -25,6 +25,10 @@ public class Cliente {
 
     private int idEndereco; // chave estrangeira para o endereço
     private String endereco; //
+    
+    public Cliente() {
+        this.historico = new Historico();
+    }
 
     public int getId() {
         return id;

@@ -29,6 +29,13 @@ public class Sessao {
         this.gerenteEvento = new GerenciarEventos();
     }
 
+    public Sessao(GerenciarCliente gc, GerenciarEventos ge) {
+        this.kart = new CarrinhoDeCompra();
+        this.compraAtual = new Compra();
+        this.gerenteCliente = gc;
+        this.gerenteEvento = ge;
+    }
+
     public boolean isLogado() {
         return logado;
     }

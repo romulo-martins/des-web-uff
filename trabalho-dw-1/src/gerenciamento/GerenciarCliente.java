@@ -40,7 +40,7 @@ public class GerenciarCliente {
 
     public Cliente getUsuario(String nome) {
         for (Cliente c : this.clientes) {
-            if (c.getUsuario().contains(nome)) {
+            if (c.getUsuario().equals(nome)) {
                 return c;
             }
         }
