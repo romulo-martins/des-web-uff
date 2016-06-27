@@ -23,7 +23,6 @@ public class Cliente {
     
     private Historico historico;
 
-
     private int idEndereco; // chave estrangeira para o endereço
     private String endereco; //
 

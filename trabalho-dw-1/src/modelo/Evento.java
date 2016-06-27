@@ -5,6 +5,9 @@
  */
 package modelo;
 
+import java.time.LocalDate;
+import java.util.Calendar;
+import java.util.Date;
 import tipos.TipoEvento;
 
 /**
@@ -94,7 +97,7 @@ public class Evento {
     }
 
     public String getData() {
-        return data;
+        return LocalDate.now().toString();
     }
 
     public void setData(String data) {

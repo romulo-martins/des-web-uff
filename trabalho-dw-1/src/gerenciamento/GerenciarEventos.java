@@ -36,13 +36,17 @@ public class GerenciarEventos {
         }
     }
     
+    public Evento getEvento(int id) {
+        return this.eventos.get(id - 1);
+    }
+    
     public Ingresso getIngresso(int idEvento) {
         Evento evento = this.eventos.get(idEvento - 1);
         int quantidadeDeIngressos = evento.getQuantidadeDeIngressos();
         evento.setQuantidadeDeIngressos(quantidadeDeIngressos - 1);
         return evento.getIngresso();
     }
-
+    
     public List<Evento> gerarCatalogo() {
         List<Evento> resp = new ArrayList<>();
         Collections.copy(eventos, resp);

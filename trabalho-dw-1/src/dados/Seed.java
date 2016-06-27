@@ -9,13 +9,14 @@ import java.util.ArrayList;
 import java.util.List;
 import modelo.Cliente;
 import modelo.Evento;
+import modelo.Ingresso;
 import tipos.TipoEvento;
+import tipos.TipoIngresso;
 
 /**
  *
  * @author Romulo
  */
-
 // Essa popula na memória dados para fazer os testes do sistema
 public class Seed {
 
@@ -25,6 +26,9 @@ public class Seed {
         Cliente cliente;
         cliente = new Cliente();
         cliente.setId(1);
+
+        cliente.setUsuario("joao_silva");
+        cliente.setSenha("joao123");
         cliente.setNome("João da silva");
         cliente.setEmail("joao@hotmail.com");
         cliente.setTelefone("(21)94745-6509");
@@ -35,6 +39,8 @@ public class Seed {
 
         cliente = new Cliente();
         cliente.setId(2);
+        cliente.setUsuario("mari_santos");
+        cliente.setSenha("mari123");
         cliente.setNome("Maria dos Santos");
         cliente.setEmail("mari@gmail.com");
         cliente.setTelefone("(31)96392-4409");
@@ -45,6 +51,8 @@ public class Seed {
 
         cliente = new Cliente();
         cliente.setId(3);
+        cliente.setUsuario("flavia_souza");
+        cliente.setSenha("flavia123");
         cliente.setNome("Flavia Almeida Souza");
         cliente.setEmail("flavinha@gmail.com");
         cliente.setTelefone("(21)97245-7362");
@@ -55,6 +63,8 @@ public class Seed {
 
         cliente = new Cliente();
         cliente.setId(4);
+        cliente.setUsuario("alessandra_melo");
+        cliente.setSenha("alessandra123");
         cliente.setNome("Alessandra de Souza Melo");
         cliente.setEmail("alexinha@hotmail.com");
         cliente.setTelefone("(21)99657-4811");
@@ -69,7 +79,9 @@ public class Seed {
     public static List<Evento> getEventos() {
         List<Evento> eventos = new ArrayList<>();
 
-        Evento evento;
+        Evento evento = null;
+        Ingresso ingresso = null;
+
         evento = new Evento();
         evento.setId(1);
         evento.setNome("As Tartarugas Ninja - Fora das Sombras");
@@ -79,6 +91,9 @@ public class Seed {
         evento.setData("27/06/2016");
         evento.setLocal("Cinemark plaza, Niteroi, RJ");
         evento.setQuantidadeDeIngressos(50);
+        ingresso = getIngresso().get(1-1);
+        ingresso.setEvento(evento);
+        evento.setIngresso(ingresso);
         eventos.add(evento);
 
         evento = new Evento();
@@ -90,6 +105,9 @@ public class Seed {
         evento.setData("14/07/2016");
         evento.setLocal("Cinemark plaza, Niteroi, RJ");
         evento.setQuantidadeDeIngressos(35);
+        ingresso = getIngresso().get(2-1);
+        ingresso.setEvento(evento);
+        evento.setIngresso(ingresso);
         eventos.add(evento);
 
         evento = new Evento();
@@ -101,6 +119,9 @@ public class Seed {
         evento.setData("15 de outubro");
         evento.setLocal("Allianz Parque, Rua Palestra Itália, 1800 - Barra Funda, São Paulo - SP");
         evento.setQuantidadeDeIngressos(1200);
+        ingresso = getIngresso().get(3-1);
+        ingresso.setEvento(evento);
+        evento.setIngresso(ingresso);
         eventos.add(evento);
 
         evento = new Evento();
@@ -112,6 +133,9 @@ public class Seed {
         evento.setData("13 de agosto");
         evento.setLocal("Tom Brasil, Rua Bragança Paulista, 1281 - Chacara Santo Antonio, São Paulo - SP");
         evento.setQuantidadeDeIngressos(800);
+        ingresso = getIngresso().get(4-1);
+        ingresso.setEvento(evento);
+        evento.setIngresso(ingresso);
         eventos.add(evento);
 
         evento = new Evento();
@@ -123,9 +147,49 @@ public class Seed {
         evento.setData("26 de junho");
         evento.setLocal("Teatro Bibi Ferreira, Avenida Brigadeiro Luís Antônio, 931 - Bela Vista,São Paulo/SP");
         evento.setQuantidadeDeIngressos(200);
+        ingresso = getIngresso().get(5-1);
+        ingresso.setEvento(evento);
+        evento.setIngresso(ingresso);
         eventos.add(evento);
 
         return eventos;
+    }
+
+    private static List<Ingresso> getIngresso() {
+        List<Ingresso> ingressos = new ArrayList<>();
+
+        Ingresso ingresso = null;
+        ingresso = new Ingresso();
+        ingresso.setId(1);
+        ingresso.setPreco(350);
+        ingresso.setTipo(TipoIngresso.Inteira);
+        ingressos.add(ingresso);
+
+        ingresso = new Ingresso();
+        ingresso.setId(2);
+        ingresso.setPreco(160);
+        ingresso.setTipo(TipoIngresso.Inteira);
+        ingressos.add(ingresso);
+
+        ingresso = new Ingresso();
+        ingresso.setId(3);
+        ingresso.setPreco(177);
+        ingresso.setTipo(TipoIngresso.Inteira);
+        ingressos.add(ingresso);
+
+        ingresso = new Ingresso();
+        ingresso.setId(4);
+        ingresso.setPreco(85);
+        ingresso.setTipo(TipoIngresso.Inteira);
+        ingressos.add(ingresso);
+
+        ingresso = new Ingresso();
+        ingresso.setId(5);
+        ingresso.setPreco(234);
+        ingresso.setTipo(TipoIngresso.Inteira);
+        ingressos.add(ingresso);
+
+        return ingressos;
     }
 
 }

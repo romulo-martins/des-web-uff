@@ -52,9 +52,6 @@ public class Main {
         //Flavia verifica o histórico para ver sa compra foi feita
         System.out.println("Histórico");
         se.exibirHistorico();
-        
-        
-        //verificar se o ingresso foi retirado do estoque do evento
-        
+                
     }
 }
