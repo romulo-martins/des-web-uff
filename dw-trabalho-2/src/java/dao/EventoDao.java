@@ -12,7 +12,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
 import model.Evento;
+import tipos.TipoEvento;
 
 /**
  *
@@ -20,52 +25,34 @@ import model.Evento;
  */
 public class EventoDao {
 
-    // a conexão com o banco de dados
-    private Connection connection;
+        private EntityManagerFactory factory;
+        private EntityManager manager;
+        
+    public EventoDao() {
+        factory = Persistence.createEntityManagerFactory("dw-trabalho-2");
+        manager = factory.createEntityManager();
+    }
 
-    public EventoDao(Connection connection) {
-        this.connection = connection;
+    public void adiciona(Evento evento) {
+        manager.getTransaction().begin();
+
+        manager.persist(evento);
+
+        manager.getTransaction().commit();
+
+        manager.close();
+        factory.close();
     }
 
     public List<Evento> getLista() {
-        List<Evento> contatos = new ArrayList<>();
-        String sql = "SELECT * FROM eventos";
+        //cuidado, use o import javax.persistence.Query
+        Query query = manager.createQuery("SELECT * FROM evento");
 
-        try {
-            PreparedStatement stmt = this.connection.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery();
+        List<Evento> lista = query.getResultList();
 
-            while (rs.next()) {
-                // criando o objeto Contato
-                Evento evento = createEvento(rs);
+        manager.close();
 
-                // adicionando o objeto à lista
-                contatos.add(evento);
-            }
-            rs.close();
-            stmt.close();
-            return contatos;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private Evento createEvento(ResultSet rs) throws SQLException {
-        // cria o objeto contato
-        Evento evento = new Evento();
-        evento.setId(rs.getInt("id"));
-        evento.setNome(rs.getString("nome"));
-        evento.setId(rs.getInt("tipo"));
-        evento.setDescricao(rs.getString("descricao"));
-        
-//        evento.setEndereco(rs.getString("endereco"));
-//
-//        // montando a data através do Calendar
-//        Calendar data = Calendar.getInstance();
-//        data.setTime(rs.getDate("dataNascimento"));
-//        evento.setDataNascimento(data);
-
-        return evento;
+        return lista;
     }
 
 }

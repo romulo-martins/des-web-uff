@@ -6,6 +6,9 @@
 package model;
 
 import java.time.LocalDate;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import tipos.TipoEvento;
 
 /**
@@ -13,55 +16,19 @@ import tipos.TipoEvento;
  * @author Romulo
  */
 
+@Entity
 public class Evento {
     
+    @Id
+    @GeneratedValue
     private int id;
     private String nome;
     private TipoEvento tipo;
     private String descricao;
     private String data; // muda para Date?
     private String hora; // muda para Date?
+    private String local;    
     
-    private int idLocal; // chave estrangeira de local
-    private Endereco local; // mudei a classe para tipo String para cortar o scopo
-    
-    private int quantidadeDeIngressos;
-    
-    private int idIngresso;
-    private Ingresso ingresso;
-
-    public int getIdIngresso() {
-        return idIngresso;
-    }
-
-    public void setIdIngresso(int idIngresso) {
-        this.idIngresso = idIngresso;
-    }
-
-    public Ingresso getIngresso() {
-        return ingresso;
-    }
-
-    public void setIngresso(Ingresso ingresso) {
-        this.ingresso = ingresso;
-    }
-
-    public int getIdLocal() {
-        return idLocal;
-    }
-
-    public void setIdLocal(int idLocal) {
-        this.idLocal = idLocal;
-    }
-
-    public int getQuantidadeDeIngressos() {
-        return quantidadeDeIngressos;
-    }
-
-    public void setQuantidadeDeIngressos(int quantidadeDeIngressos) {
-        this.quantidadeDeIngressos = quantidadeDeIngressos;
-    }
-
     public int getId() {
         return id;
     }
@@ -110,14 +77,14 @@ public class Evento {
         this.hora = hora;
     }
 
-    public Endereco getLocal() {
+    public String getLocal() {
         return local;
     }
 
-    public void setLocal(Endereco local) {
+    public void setLocal(String local) {
         this.local = local;
     }
-    
+
     @Override
     public String toString() {
         return "Cod: " + getId() + "\n" +
@@ -127,6 +94,6 @@ public class Evento {
                 "Data: " + getData() + "\n" +
                 "Hora: " + getHora() + "\n" +
                 "Local: " + getLocal() + "\n" + 
-                "Quantidade de Ingressos: " + getQuantidadeDeIngressos()+ "\n";
+                "Quantidade de Ingressos: \n";
     }
 }
