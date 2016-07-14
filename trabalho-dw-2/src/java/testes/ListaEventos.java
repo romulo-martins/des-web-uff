@@ -6,26 +6,24 @@
 package testes;
 
 import dao.EventoDao;
+import java.util.List;
 import model.Evento;
-import tipos.TipoEvento;
 
 /**
  *
  * @author Romulo
  */
 
-
-public class EventoAdiciona {
-
+public class ListaEventos {
+    
     public static void main(String[] args) {
-        Evento evento = new Evento();
-        evento.setNome("Angra");
-        evento.setTipo(TipoEvento.Show);
-        evento.setHora("17:45");
-        evento.setData("18/07/2016");
-        evento.setLocal("Circo Voador");
         
         EventoDao dao = new EventoDao();
-        dao.adiciona(evento);
+        List<Evento> eventos = dao.getLista();
+        for(Evento evento : eventos) {
+            System.out.println(evento);
+        }
+        
     }
+    
 }

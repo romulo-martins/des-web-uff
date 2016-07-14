@@ -6,7 +6,7 @@ CREATE TABLE Cliente (
     email VARCHAR(40), 
     telefone VARCHAR(40),
     data_nascimento VARCHAR(40),
-    PRIMARY KEY (id),
+    PRIMARY KEY (id)
 );
 
 /* criação de eventos */
@@ -17,7 +17,7 @@ CREATE TABLE Evento (
 	data VARCHAR(20),
 	hora VARCHAR(20),
 	local VARCHAR(40),
-    PRIMARY KEY (id),
+    PRIMARY KEY (id)
 );
 
 /* criação de ingresso */

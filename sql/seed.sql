@@ -1,10 +1,10 @@
 
 /* Inserção de Clientes */
-INSERT INTO Clientes(nome, email, telefone, data_nascimento) VALUES('Joao', 'joao@hotmail.com', '(21)9784-5589', '15/08/1957');
-INSERT INTO Clientes(nome, email, telefone, data_nascimento) VALUES('Maria', 'mari@gmail.com', '(11)9841-7795', '03/04/1992');
-INSERT INTO Clientes(nome, email, telefone, data_nascimento) VALUES('Ana', 'aninha@yahoo.com', '(19)6588-1910', '07/11/1995');
-INSERT INTO Clientes(nome, email, telefone, data_nascimento) VALUES('Paulo', 'paulinho@hotmail.com', '(21)6798-4486', '23/04/1986');
-INSERT INTO Clientes(nome, email, telefone, data_nascimento) VALUES('Fatima', 'fatinha@hotmail.com', '(11)8956-2367', '05/06/1994');
+INSERT INTO Cliente(nome, email, telefone, data_nascimento) VALUES('Joao', 'joao@hotmail.com', '(21)9784-5589', '15/08/1957');
+INSERT INTO Cliente(nome, email, telefone, data_nascimento) VALUES('Maria', 'mari@gmail.com', '(11)9841-7795', '03/04/1992');
+INSERT INTO Cliente(nome, email, telefone, data_nascimento) VALUES('Ana', 'aninha@yahoo.com', '(19)6588-1910', '07/11/1995');
+INSERT INTO Cliente(nome, email, telefone, data_nascimento) VALUES('Paulo', 'paulinho@hotmail.com', '(21)6798-4486', '23/04/1986');
+INSERT INTO Cliente(nome, email, telefone, data_nascimento) VALUES('Fatima', 'fatinha@hotmail.com', '(11)8956-2367', '05/06/1994');
 
 
 /* Inserção de */

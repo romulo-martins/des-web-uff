@@ -23,7 +23,7 @@ public class EventoDao {
     private Connection connection;
 
     public EventoDao() {
-        connection = new ConnectionFactory().getConnection();
+        this.connection = new ConnectionFactory().getConnection();
     }
 
     public void adiciona(Evento evento) {
