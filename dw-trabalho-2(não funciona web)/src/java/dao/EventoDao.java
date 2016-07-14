@@ -5,19 +5,12 @@
  */
 package dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import model.Evento;
-import tipos.TipoEvento;
 
 /**
  *
@@ -29,7 +22,7 @@ public class EventoDao {
         private EntityManager manager;
         
     public EventoDao() {
-        factory = Persistence.createEntityManagerFactory("dw-trabalho-2");
+        factory = Persistence.createEntityManagerFactory("dw-2");
         manager = factory.createEntityManager();
     }
 

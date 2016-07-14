@@ -7,7 +7,6 @@ package testes;
 
 import dao.EventoDao;
 import model.Evento;
-import tipos.TipoEvento;
 
 /**
  *
@@ -17,8 +16,7 @@ public class AdicionaEvento {
 
     public static void main(String[] args) {
         Evento evento = new Evento();
-        evento.setNome("Angra");
-        evento.setTipo(TipoEvento.Show);
+        evento.setNome("Dream Theater");
         evento.setHora("17:45");
         evento.setData("18/07/2016");
         evento.setLocal("Circo Voador");

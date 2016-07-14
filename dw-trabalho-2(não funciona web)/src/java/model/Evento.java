@@ -93,7 +93,6 @@ public class Evento {
                 "Descrição: " + getDescricao() + "\n" +
                 "Data: " + getData() + "\n" +
                 "Hora: " + getHora() + "\n" +
-                "Local: " + getLocal() + "\n" + 
-                "Quantidade de Ingressos: \n";
+                "Local: " + getLocal() + "\n";
     }
 }
