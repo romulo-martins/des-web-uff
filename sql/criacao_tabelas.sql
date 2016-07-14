@@ -1,7 +1,7 @@
 
 /* criação de clientes */
 CREATE TABLE Cliente (
-    id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1),
+    id INTEGER NOT NULL AUTO_INCREMENT,
     nome VARCHAR(40),
     email VARCHAR(40), 
     telefone VARCHAR(40),
@@ -11,12 +11,12 @@ CREATE TABLE Cliente (
 
 /* criação de eventos */
 CREATE TABLE Evento (
-    id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1),	
+    id INTEGER NOT NULL AUTO_INCREMENT,	
     nome VARCHAR(40),
     descricao VARCHAR(100),
 	data VARCHAR(20),
 	hora VARCHAR(20),
-	local VARCHAR(40),
+	local VARCHAR(100),
     PRIMARY KEY (id)
 );
 
@@ -46,4 +46,5 @@ CREATE TABLE Endereco(
 	PRIMARY KEY(id)
 );
 
+/* AUTO_INCREMENT no derby é GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1) */
 
