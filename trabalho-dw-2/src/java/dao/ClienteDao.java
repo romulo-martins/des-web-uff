@@ -49,6 +49,25 @@ public class ClienteDao {
         }
     }
 
+    public void altera(Cliente cliente) {
+        String sql = "update cliente set nome=?, email=?,"
+                + "telefone=?, data_nascimento=? where id=?";
+
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, cliente.getNome());
+            stmt.setString(2, cliente.getEmail());
+            stmt.setString(3, cliente.getTelefone());
+            stmt.setString(4, cliente.getDataDeNascimento());
+            stmt.setInt(5, cliente.getId());
+            
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     public List<Cliente> getLista() {
         List<Cliente> clientes = new ArrayList<>();
         String sql = "SELECT * FROM cliente";

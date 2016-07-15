@@ -50,6 +50,6 @@
             </tbody>
         </table>
         <hr />
-        <a href="bem-vindo.jsp">pagina principal</a>
+        <a href="bem-vindo.jsp">Pagina principal</a>
     </body>
 </html>

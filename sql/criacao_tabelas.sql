@@ -19,6 +19,16 @@ CREATE TABLE Cliente (
     PRIMARY KEY (id)
 );
 
+/* tabela de historico */
+CREATE TABLE Historico (
+	id INTEGER NOT NULL AUTO_INCREMENT,
+	data_compra VARCHAR(40),
+	valor_total INTEGER,
+	cliente_id INTEGER NOT NULL,
+	PRIMARY KEY(id), 
+	FOREIGN KEY(cliente_id) REFERENCES Cliente(id)
+);
+
 /* criação de eventos */
 CREATE TABLE Evento (
     id INTEGER NOT NULL AUTO_INCREMENT,	
@@ -37,12 +47,6 @@ CREATE TABLE Ingresso(
 	evento_id INTEGER,
 	PRIMARY KEY(id),
 	FOREIGN KEY(evento_id) REFERENCES evento(id)
-);
-
-CREATE TABLE Compra (
-	id INTEGER NOT NULL AUTO_INCREMENT,
-	valor_total DOUBLE,
-	PRIMARY KEY(id)
 );
 
 /* Não precisa por enquanto */

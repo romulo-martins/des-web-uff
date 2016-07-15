@@ -12,6 +12,7 @@
         <title>Login</title>
     </head>
     <body>
+        <h1>Login</h1>
         <form action="validaUsuario" method="post">
             Name: <input type="text" name="name"/> <br />
             Password: <input type="password" name="password"/> <br />

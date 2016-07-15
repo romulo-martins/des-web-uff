@@ -13,9 +13,9 @@ import model.Historico;
  */
 public class HistoricoDao {
     
-    public Historico busca() {
-        Historico h = new Historico();
-        return h;
+    public Historico busca(int idCliente) {
+        
+        return null;
     }
         
 }

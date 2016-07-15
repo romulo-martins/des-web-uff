@@ -12,14 +12,20 @@ import model.Cliente;
  *
  * @author Romulo
  */
-public class BuscaCliente {
-    
+public class EditarCliente {
+
     public static void main(String[] args) {
-        
+
         ClienteDao dao = new ClienteDao();
-        Cliente cliente = dao.busca(3);        
+        Cliente cliente = dao.busca(3);
         System.out.println(cliente);
         
+        //altera o cliente
+        cliente.setDataDeNascimento("18/11/1994");
+        dao.altera(cliente);
+        
+        System.out.println("mudei!!!");
+
     }
-    
+
 }

@@ -15,6 +15,7 @@
     <body>
         <% Usuario usuario = (Usuario) session.getAttribute("usuario"); %>
         <h1>Bem vindo ao Super Ingressos <em><%= usuario.getCliente().getNome() %></em>!</h1>
-        <a href="mvc?logica=ListaEventosLogic">visualizar eventos</a>
+        <a href="mvc?logica=ListaEventosLogic">Visualizar eventos</a> | 
+        <a href="detalhes-cliente.jsp">Meus dados</a>
     </body>
 </html>
