@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import jdbc.ConnectionFactory;
 import model.Evento;
 
@@ -50,7 +52,7 @@ public class EventoDao {
         }
 
     }
-    
+
     public void remove(Evento evento) {
         String sql = "DELETE FROM evento WHERE id=?";
 
@@ -61,6 +63,27 @@ public class EventoDao {
             // executa
             stmt.execute();
             stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Evento busca(int id) {
+        String sql = "SELECT * "
+                + "FROM evento "
+                + "WHERE id = ?";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            rs.next();
+
+            Evento evento = createEvento(rs);
+
+            rs.close();
+            stmt.close();
+            return evento;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -86,6 +109,14 @@ public class EventoDao {
             return eventos;
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    public void closeConnection() {
+        try {
+            this.connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

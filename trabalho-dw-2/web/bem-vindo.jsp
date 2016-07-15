@@ -13,9 +13,14 @@
         <title>Bem vindo</title>
     </head>
     <body>
-        <% Usuario usuario = (Usuario) session.getAttribute("usuario"); %>
-        <h1>Bem vindo ao Super Ingressos <em><%= usuario.getCliente().getNome() %></em>!</h1>
+        <% Usuario usuario = (Usuario) session.getAttribute("usuario");%>
+        <h1>Bem vindo a loja virtual de ingressos</h1>
         <a href="mvc?logica=ListaEventosLogic">Visualizar eventos</a> | 
-        <a href="detalhes-cliente.jsp">Meus dados</a>
+
+        <% if (usuario != null) { %>
+            <a href="detalhes-cliente.jsp">Meus dados</a>
+        <% } else { %>
+            <a href="login.jsp">Realizar Login</a>
+        <% } %>
     </body>
 </html>

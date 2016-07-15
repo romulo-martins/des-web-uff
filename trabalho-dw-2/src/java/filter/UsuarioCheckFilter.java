@@ -13,6 +13,7 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import model.Usuario;
@@ -21,6 +22,7 @@ import model.Usuario;
  *
  * @author Romulo
  */
+ 
 public class UsuarioCheckFilter implements Filter {
 
     private String LOGIN_ACTION_URI;

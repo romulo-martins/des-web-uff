@@ -14,9 +14,12 @@
     <body>
         <h1>Login</h1>
         <form action="validaUsuario" method="post">
-            Name: <input type="text" name="name"/> <br />
-            Password: <input type="password" name="password"/> <br />
+            <p>Name: <input type="text" name="name"/></p>
+            <p>Password: <input type="password" name="password"/></p>            
             <input type="submit" value="LogIn"/>
         </form>
+        
+        <hr />
+        <a href="bem-vindo.jsp">Pagina princial</a>
     </body>
 </html>

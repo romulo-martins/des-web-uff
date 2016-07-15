@@ -14,7 +14,6 @@ public class Usuario {
     
     private String name;
     private String password;
-    
     private Cliente cliente;
      
     public Usuario(String name, String password){
@@ -40,7 +39,7 @@ public class Usuario {
 
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
-    }
+    }  
     
     @Override
     public String toString() {

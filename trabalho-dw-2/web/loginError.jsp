@@ -12,6 +12,8 @@
         <title>Error</title>
     </head>
     <body>
-        <p>Usuário ou senha erradas!</p>
+        <p>Usuário ou senha Incorretas!</p>
+        <a href="login.jsp">Logar</a> |
+        <a href="bem-vindo.jsp">Pagina princial</a>
     </body>
 </html>

@@ -26,6 +26,7 @@
     </filter>
     <filter-mapping>
         <filter-name>UsuarioCheckFilter</filter-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/detalhes-cliente.jsp</url-pattern>
+        <url-pattern>/editar-cliente.jsp</url-pattern>
     </filter-mapping>
 </web-app>

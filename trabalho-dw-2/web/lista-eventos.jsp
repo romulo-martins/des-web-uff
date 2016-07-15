@@ -15,7 +15,6 @@
     </head>
     <body>
         <h1>Lista de Eventos</h1>
-        <a href="adiciona-evento.jsp">Adicionar Contato</a>
         <hr />
         <table>
             <thead>
@@ -25,6 +24,7 @@
                     <th>Data</th>
                     <th>Hora</th>
                     <th>Local</th>
+                    <th></th>
                     <th></th>
                 </tr>
             </thead>
@@ -40,8 +40,7 @@
                     <td><%= evento.getHora()%></td>
                     <td><%= evento.getLocal()%></td>
                     <td>
-                    <td>
-                        <a href="mvc?logica=RemoveEventoLogic&id=<%= evento.getId()%>">Remover</a>
+                        <a href="detalhesEvento?id=<%= evento.getId()%>">Detalhes</a>
                     </td>
                 </tr>
                 <%

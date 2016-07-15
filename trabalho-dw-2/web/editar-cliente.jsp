@@ -29,6 +29,6 @@
             <input type="submit" value="Salvar" />
         </form>
         <hr />
-        <a href="detalhes-cliente.jsp">voltar</a>
+        <a href="detalhes-cliente.jsp">Voltar</a>
     </body>
 </html>

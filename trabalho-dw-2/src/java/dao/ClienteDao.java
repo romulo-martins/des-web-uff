@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import jdbc.ConnectionFactory;
 import model.Cliente;
 
@@ -88,6 +90,14 @@ public class ClienteDao {
             return clientes;
         } catch (SQLException e) {
             throw new RuntimeException(e);
+        }
+    }
+    
+    public void closeConnection() {
+        try {
+            this.connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
