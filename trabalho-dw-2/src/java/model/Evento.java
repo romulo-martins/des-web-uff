@@ -21,6 +21,15 @@ public class Evento {
     private String data; // muda para Date?
     private String hora; // muda para Date?
     private String local;    
+    private int qtdEstoque;
+
+    public void setQtdEstoque(int qtdEstoque) {
+        this.qtdEstoque = qtdEstoque;
+    }
+
+    public int getQtdEstoque() {
+        return qtdEstoque;
+    }
     
     public int getId() {
         return id;

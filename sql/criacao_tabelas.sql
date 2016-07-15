@@ -40,6 +40,7 @@ CREATE TABLE Evento (
     PRIMARY KEY (id)
 );
 
+
 /* criação de ingresso */
 CREATE TABLE Ingresso(
 	id INTEGER NOT NULL AUTO_INCREMENT,
@@ -61,4 +62,3 @@ CREATE TABLE Endereco(
 );
 
 /* AUTO_INCREMENT no derby é GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1) */
-

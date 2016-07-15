@@ -5,6 +5,8 @@
  */
 package model;
 
+import tipos.TipoIngresso;
+
 /**
  *
  * @author Romulo
@@ -14,6 +16,14 @@ public class Ingresso {
     private int id;
     private int preco;
     private Evento evento;
+    private final TipoIngresso tipo;
+
+    public Ingresso(int id, int preco, TipoIngresso tipo, Evento evento) {
+        this.id = id;
+        this.preco = preco;
+        this.tipo = tipo;
+        this.evento = evento;
+    }
 
     public int getId() {
         return id;
