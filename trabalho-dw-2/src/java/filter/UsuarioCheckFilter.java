@@ -21,7 +21,7 @@ import model.Usuario;
  *
  * @author Romulo
  */
-public class UserCheckFilter implements Filter {
+public class UsuarioCheckFilter implements Filter {
 
     private String LOGIN_ACTION_URI;
 

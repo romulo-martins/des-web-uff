@@ -12,7 +12,7 @@
         <title>Login</title>
     </head>
     <body>
-        <form action="userValidator" method="post">
+        <form action="validaUsuario" method="post">
             Name: <input type="text" name="name"/> <br />
             Password: <input type="password" name="password"/> <br />
             <input type="submit" value="LogIn"/>

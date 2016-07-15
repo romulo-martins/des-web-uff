@@ -20,8 +20,8 @@ import model.Usuario;
  *
  * @author Romulo
  */
-@WebServlet("/userValidator")
-public class UserValidator extends HttpServlet {
+@WebServlet("/validaUsuario")
+public class ValidaUsuario extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
