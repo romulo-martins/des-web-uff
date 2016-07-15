@@ -14,17 +14,17 @@ import java.util.List;
  */
 public class Carrinho {
     
-    private List<Ingresso> ingressos; 
+    private List<Ticket> entrada; 
 
     public Carrinho() {
-        this.ingressos = new ArrayList<>();
+        this.entrada = new ArrayList<>();
     }
 
-    public List<Ingresso> getIngressos() {
-        return ingressos;
+    public List<Ticket> getEntrada() {
+        return entrada;
     }
     
-    public void AdicionarCarrinho(Ingresso ingresso){
-        ingressos.add(ingresso);
+    public void AdicionarCarrinho(Ticket entrada){
+        this.entrada.add(entrada);
     }
 }

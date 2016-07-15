@@ -12,18 +12,27 @@ import tipos.TipoIngresso;
  * @author Romulo
  */
 public class Ingresso {
-    
+
     private int id;
     private int preco;
-    private Evento evento;
-    private final TipoIngresso tipo;
+    private int qtdEstoque;
 
-    public Ingresso(int id, int preco, TipoIngresso tipo, Evento evento) {
-        this.id = id;
+    public Ingresso(int preco, int qtdEstoque, Evento evento) {
         this.preco = preco;
-        this.tipo = tipo;
+        this.qtdEstoque = qtdEstoque;
         this.evento = evento;
     }
+    
+    public void setQtdEstoque(int qtdEstoque) {
+        this.qtdEstoque = qtdEstoque;
+    }
+
+    public int getQtdEstoque() {
+        return qtdEstoque;
+    }
+    private Evento evento;
+    //private final TipoIngresso tipo;
+
 
     public int getId() {
         return id;
@@ -33,7 +42,7 @@ public class Ingresso {
         this.id = id;
     }
 
-    public double getPreco() {
+    public int getPreco() {
         return preco;
     }
 
@@ -48,5 +57,5 @@ public class Ingresso {
     public void setEvento(Evento evento) {
         this.evento = evento;
     }
-    
+
 }

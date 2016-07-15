@@ -26,13 +26,21 @@
                 <tr>
                     <td><%= evento.getNome()%></td>
                     <td><%= evento.getDescricao()%></td>
-                    <td><%= evento.getTipo()%></td>
+                    <td><%= evento.getTipoEvento()%></td>
                     <td><%= evento.getData()%></td>
                     <td><%= evento.getHora()%></td>
                     <td><%= evento.getLocal()%></td>
                     <td>
                     <td>
-                        <a href="mvc?logica=AdicionaCarrinhoLogic&id=<%= evento.getId()%>">Adiciona Carrinho</a>
+                        <form action="mvc" method="get">
+                            <input type="hidden" name="logica" value="AdicionaCarrinhoLogic" >
+                            <input type="hidden" name="id" value="<%= evento.getId()%>">
+                            <input type="radio" name="TipoEntrada" value="1" checked>Meia
+                            <input type="radio" name="TipoEntrada" value="2">Inteira
+
+                            <input type="submit" value="Adiciona Carrinho">
+                            <a href="mvc?logica=AdicionaCarrinhoLogic&id=<%= evento.getId()%>">Adiciona Carrinho</a>
+                        </form>
                     </td>
                 </tr>
                 <%

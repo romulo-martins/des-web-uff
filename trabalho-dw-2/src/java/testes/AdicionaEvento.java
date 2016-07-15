@@ -22,6 +22,7 @@ public class AdicionaEvento {
         evento.setHora("17:45");
         evento.setData("18/07/2016");
         evento.setLocal("Circo Voador");
+        evento.criarIngresso(10, 7);
         
         EventoDao dao = new EventoDao();
         dao.adiciona(evento);

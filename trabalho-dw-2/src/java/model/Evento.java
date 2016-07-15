@@ -7,6 +7,7 @@ package model;
 
 import java.time.LocalDate;
 import tipos.TipoEvento;
+import tipos.TipoIngresso;
 
 /**
  *
@@ -21,6 +22,22 @@ public class Evento {
     private String data; // muda para Date?
     private String hora; // muda para Date?
     private String local;    
+    private TipoEvento tipoEvento;
+    
+    private Ingresso ingresso;
+
+    public void criarIngresso(int valor, int qtdEstoque) {
+        this.ingresso = new Ingresso(valor, qtdEstoque, this);
+    }
+    
+    public Ingresso getIngresso() {
+        return ingresso;
+    }
+
+    public TipoEvento getTipoEvento() {
+        return tipoEvento;
+    }
+    //login Lcc  senha Abc123#
     private int qtdEstoque;
 
     public void setQtdEstoque(int qtdEstoque) {
