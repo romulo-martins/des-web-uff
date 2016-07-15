@@ -18,7 +18,8 @@
         <a href="mvc?logica=ListaEventosLogic">Visualizar eventos</a> | 
 
         <% if (usuario != null) { %>
-            <a href="detalhes-cliente.jsp">Meus dados</a>
+            <a href="detalhes-cliente.jsp">Meus dados</a> |
+            <a href="logout">Sair</a>
         <% } else { %>
             <a href="login.jsp">Realizar Login</a>
         <% } %>

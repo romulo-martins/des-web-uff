@@ -28,9 +28,9 @@
         Valor: TODO <br />
         Ingressos disponiveis: TODO 
         <hr />
-        <a href="mvc?logica=ListaEventosLogic">Voltar</a> |
+        <a href="mvc?logica=ListaEventosLogic">Voltar</a>
         <% if (usuario != null) { %>
-            <a href="">Adicionar ao carrinho</a>
+            | <a href="">Adicionar ao carrinho</a>
         <% }%>
     </body>
 </html>

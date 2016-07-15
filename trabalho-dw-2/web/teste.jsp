@@ -26,7 +26,6 @@
                 <tr>
                     <td><%= evento.getNome()%></td>
                     <td><%= evento.getDescricao()%></td>
-                    <td><%= evento.getTipo()%></td>
                     <td><%= evento.getData()%></td>
                     <td><%= evento.getHora()%></td>
                     <td><%= evento.getLocal()%></td>

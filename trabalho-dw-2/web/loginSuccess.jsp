@@ -16,6 +16,6 @@
         <% Usuario usuario = (Usuario) session.getAttribute("usuario"); %>
         <h1>Voce está logado <%= usuario.getCliente().getNome() %></h1>
         
-        <a href="bem-vindo.jsp">pagina principal</a>
+        <a href="bem-vindo.jsp">Pagina principal</a>
     </body>
 </html>

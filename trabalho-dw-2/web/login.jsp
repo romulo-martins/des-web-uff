@@ -16,7 +16,7 @@
         <form action="validaUsuario" method="post">
             <p>Name: <input type="text" name="name"/></p>
             <p>Password: <input type="password" name="password"/></p>            
-            <input type="submit" value="LogIn"/>
+            <input type="submit" value="Login"/>
         </form>
         
         <hr />
