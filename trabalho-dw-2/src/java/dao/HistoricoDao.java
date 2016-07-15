@@ -5,6 +5,7 @@
  */
 package dao;
 
+import java.util.List;
 import model.Historico;
 
 /**
@@ -12,10 +13,10 @@ import model.Historico;
  * @author Romulo
  */
 public class HistoricoDao {
-    
-    public Historico busca(int idCliente) {
-        
+
+    public List<Historico> busca(int idCliente) {
+
         return null;
     }
-        
+
 }
