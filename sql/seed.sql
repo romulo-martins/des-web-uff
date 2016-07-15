@@ -14,6 +14,12 @@ INSERT INTO Cliente(id, nome, email, telefone, data_nascimento) VALUES(3, 'Ana',
 INSERT INTO Cliente(id, nome, email, telefone, data_nascimento) VALUES(4, 'Paulo', 'paulinho@hotmail.com', '(21)6798-4486', '23/04/1986');
 INSERT INTO Cliente(id, nome, email, telefone, data_nascimento) VALUES(5, 'Fatima', 'fatinha@hotmail.com', '(11)8956-2367', '05/06/1994');
 
+/* Inserção de exemplos de histórico */
+INSERT INTO Historico(id, data_compra, valor_compra, cliente_id) VALUES(1, '18/09/2001', 2.300, 1);
+INSERT INTO Historico(id, data_compra, valor_compra, cliente_id) VALUES(2, '07/11/2006', 3.700, 1);
+INSERT INTO Historico(id, data_compra, valor_compra, cliente_id) VALUES(3, '20/07/2012', 300, 3);
+INSERT INTO Historico(id, data_compra, valor_compra, cliente_id) VALUES(4, '04/08/2011', 250, 3);
+
 
 /* Inserção de */
 INSERT INTO Evento(id, nome, descricao, data, hora, local) VALUES(1, 'JOE SATRIANI', 'Show', '07/12/2016', '21h00', 'Espaço das Américas, Rua Tagipuru, 795 - Barra Funda, São Paulo - SP');

@@ -78,7 +78,6 @@ public class EventoDao {
             ResultSet rs = stmt.executeQuery();
 
             rs.next();
-
             Evento evento = createEvento(rs);
 
             rs.close();
@@ -121,15 +120,15 @@ public class EventoDao {
     }
 
     private Evento createEvento(ResultSet rs) throws SQLException {
-        // cria o objeto contato
-        Evento contato = new Evento();
-        contato.setId(rs.getInt("id"));
-        contato.setNome(rs.getString("nome"));
-        contato.setDescricao(rs.getString("descricao"));
-        contato.setData("data");
-        contato.setLocal(rs.getString("local"));
-        contato.setHora(rs.getString("hora"));
-        return contato;
+        // cria o objeto evento
+        Evento evento = new Evento();
+        evento.setId(rs.getInt("id"));
+        evento.setNome(rs.getString("nome"));
+        evento.setDescricao(rs.getString("descricao"));
+        evento.setData("data");
+        evento.setLocal(rs.getString("local"));
+        evento.setHora(rs.getString("hora"));
+        return evento;
     }
 
 }

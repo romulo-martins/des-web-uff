@@ -23,7 +23,7 @@ CREATE TABLE Cliente (
 CREATE TABLE Historico (
 	id INTEGER NOT NULL AUTO_INCREMENT,
 	data_compra VARCHAR(40),
-	valor_total INTEGER,
+	valor_compra DOUBLE,
 	cliente_id INTEGER NOT NULL,
 	PRIMARY KEY(id), 
 	FOREIGN KEY(cliente_id) REFERENCES Cliente(id)

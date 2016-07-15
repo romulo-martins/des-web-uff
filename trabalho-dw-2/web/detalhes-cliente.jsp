@@ -20,7 +20,7 @@
         %>
         <h1>Detalhes</h1>
         <a href="editar-cliente.jsp">Editar</a> |
-        <a href="#">Historico de compras</a>
+        <a href="visualizarHistorico">Historico de compras</a>
         <hr/>
         Nome: <%= cliente.getNome() %><br />
         Email: <%= cliente.getEmail() %><br />

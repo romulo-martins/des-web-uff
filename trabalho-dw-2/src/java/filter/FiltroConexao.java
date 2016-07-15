@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package filter;
 
 import jdbc.ConnectionFactory;
@@ -43,7 +44,6 @@ public class FiltroConexao implements Filter {
         } catch (SQLException e) {
             throw new ServletException(e);
         }
-
     }
 
     @Override
