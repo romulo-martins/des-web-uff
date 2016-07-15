@@ -16,12 +16,12 @@
     <body>
         <h1>Lista de Eventos</h1>
         <a href="adiciona-evento.jsp">Adicionar Contato</a>
+        <hr />
         <table>
             <thead>
                 <tr>
                     <th>Nome</th>
                     <th>Descricao</th>
-                    <th>Tipo</th>
                     <th>Data</th>
                     <th>Hora</th>
                     <th>Local</th>
@@ -36,7 +36,6 @@
                 <tr>
                     <td><%= evento.getNome()%></td>
                     <td><%= evento.getDescricao()%></td>
-                    <td><%= evento.getTipo()%></td>
                     <td><%= evento.getData()%></td>
                     <td><%= evento.getHora()%></td>
                     <td><%= evento.getLocal()%></td>
@@ -50,5 +49,7 @@
                 %>
             </tbody>
         </table>
+        <hr />
+        <a href="bem-vindo.jsp">pagina principal</a>
     </body>
 </html>

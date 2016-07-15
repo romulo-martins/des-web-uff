@@ -17,7 +17,6 @@ public class Evento {
     
     private int id;
     private String nome;
-    private TipoEvento tipo;
     private String descricao;
     private String data; // muda para Date?
     private String hora; // muda para Date?
@@ -37,14 +36,6 @@ public class Evento {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public TipoEvento getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(TipoEvento tipo) {
-        this.tipo = tipo;
     }
 
     public String getDescricao() {
@@ -83,7 +74,6 @@ public class Evento {
     public String toString() {
         return "Cod: " + getId() + "\n" +
                 "Nome: " + getNome() + "\n" +
-                "Tipo: " + getTipo() + "\n" +
                 "Descrição: " + getDescricao() + "\n" +
                 "Data: " + getData() + "\n" +
                 "Hora: " + getHora() + "\n" +

@@ -16,7 +16,6 @@ public class Cliente {
     private String email;
     private String telefone;
     private String dataDeNascimento; // deixei como String para facilitar mais dps podemos trocar para Calendar
-    private String cpf;    
     
     public int getId() {
         return id;
@@ -58,22 +57,12 @@ public class Cliente {
         this.dataDeNascimento = dataDeNascimento;
     }
 
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
     @Override
     public String toString() {
-        return "Cod: " + getId() + "\n"
-                + "Nome: " + getNome() + "\n"
+        return "Nome: " + getNome() + "\n"
                 + "Email: " + getEmail() + "\n"
                 + "Telefone: " + getTelefone() + "\n"
-                + "Data de nascimento: " + getDataDeNascimento() + "\n"
-                + "CPF: " + getCpf() + "\n";
+                + "Data de nascimento: " + getDataDeNascimento() + "\n";
     }
 
 

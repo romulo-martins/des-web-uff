@@ -1,6 +1,6 @@
 <%-- 
-    Document   : bemvindo
-    Created on : 13/07/2016, 20:25:22
+    Document   : loginError
+    Created on : 03/07/2016, 16:20:25
     Author     : Romulo
 --%>
 
@@ -9,10 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Bem vindo</title>
+        <title>Error</title>
     </head>
     <body>
-        <h1>Bem vindo ao Super Ingressos!</h1>
-        <a href="mvc?logica=ListaEventosLogic">listar eventos</a>
+        <p>Usuário ou senha erradas!</p>
     </body>
 </html>

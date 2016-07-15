@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 import jdbc.ConnectionFactory;
 import model.Cliente;
-import model.Evento;
 
 /**
  *
