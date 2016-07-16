@@ -35,11 +35,17 @@
                         <form action="mvc" method="get">
                             <input type="hidden" name="logica" value="AdicionaCarrinhoLogic" >
                             <input type="hidden" name="id" value="<%= evento.getId()%>">
+                            Qtd:
+                            <select name="qtd">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
                             <input type="radio" name="TipoEntrada" value="1" checked>Meia
                             <input type="radio" name="TipoEntrada" value="2">Inteira
 
                             <input type="submit" value="Adiciona Carrinho">
-                            <a href="mvc?logica=AdicionaCarrinhoLogic&id=<%= evento.getId()%>">Adiciona Carrinho</a>
                         </form>
                     </td>
                 </tr>
@@ -48,5 +54,6 @@
                 %>
             </tbody>
         </table>
+           <a href="listar-carrinho.jsp">Meu Carrinho</a>
     </body>
 </html>

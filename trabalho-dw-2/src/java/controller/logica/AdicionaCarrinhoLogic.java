@@ -18,43 +18,26 @@ import tipos.TipoIngresso;
  *
  * @author cafer
  */
-//@WebServlet("/adicionaCarrinho")
-public class AdicionaCarrinhoLogic implements Logica{ //extends HttpServlet {
-
+public class AdicionaCarrinhoLogic implements Logica {
 
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
         Carrinho carrinho = new Carrinho();
         HttpSession session = req.getSession();
         session.setAttribute("carrinho", carrinho);
+        Carrinho c = (Carrinho) req.getSession().getAttribute("carrinho");
         EventoDao dao = new EventoDao();
         Evento evento = dao.busca(Integer.parseInt(req.getParameter("id")));
-        
-        Carrinho c = (Carrinho) req.getSession().getAttribute("carrinho");
-        
+
         TipoIngresso tipo = TipoIngresso.Inteira;
-        if(req.getParameter("TipoEntrada").equals("1")){
+        if (req.getParameter("TipoEntrada").equals("1")) {
             tipo = TipoIngresso.Meia;
         }
-        Ticket entrada = new Ticket(evento.getIngresso(), tipo);
-        c.AdicionarCarrinho(entrada);
-        return "/TestServlet";
 
+        for (int i = 0; i < Integer.parseInt(req.getParameter("qtd")); i++) {
+            Ticket entrada = new Ticket(evento.getIngresso(), tipo);
+            c.adicionarTicket(entrada);
+        }
+        return "/AdicionarCarrinho";
     }
-//    @Override
-//    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        Carrinho carrinho = new Carrinho();
-//        HttpSession session = req.getSession();
-//        session.setAttribute("carrinho", carrinho);
-//
-//        int id = Integer.parseInt(req.getParameter("id"));
-//
-//        Evento evento = new Evento();
-//        Ingresso ingresso = new Ingresso(1, 100, TipoIngresso.Meia, evento);
-//        Carrinho c = (Carrinho) req.getSession().getAttribute("carrinho");
-//        c.AdicionarCarrinho(ingresso);
-//
-//        RequestDispatcher rd = req.getRequestDispatcher("/teste.jsp");
-//        rd.forward(req, resp);
-//    }
 }

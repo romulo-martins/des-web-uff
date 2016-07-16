@@ -20,8 +20,8 @@ import model.Evento;
  *
  * @author cafer
  */
-@WebServlet(name = "TestServlet", urlPatterns = {"/TestServlet"})
-public class TestServlet extends HttpServlet {
+@WebServlet(name = "AdicionarCarrinho", urlPatterns = {"/AdicionarCarrinho"})
+public class AdicionarCarrinho extends HttpServlet {
 
   
     @Override
@@ -31,7 +31,7 @@ public class TestServlet extends HttpServlet {
         List<Evento> eventos = dao.getLista();
         req.setAttribute("eventos", eventos);
 
-        req.getRequestDispatcher("/teste.jsp").forward(req, resp);
+        req.getRequestDispatcher("/adicionar-carrinho.jsp").forward(req, resp);
     }
 
     @Override
