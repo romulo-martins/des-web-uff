@@ -25,6 +25,10 @@ public class Ingresso {
         this.evento = evento;
     }
 
+    public Ingresso() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId() {
         return id;
     }

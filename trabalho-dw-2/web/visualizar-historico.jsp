@@ -17,21 +17,25 @@
         <h1>Historico de compras</h1>
         <%
             List<Historico> historico = (List<Historico>) request.getAttribute("historico");
-
         %>
         <table>
             <thead>
                 <tr>
+                    <th>Codigo da compa</th>
                     <th>Data</th>
                     <th>Valor</th>
+                    <th>Ingressos comprados</>
                 </tr>
             </thead>
             <tbody>
-                <%                    for (Historico linhaHistorico : historico) {
+                <%                    
+                    for (Historico linhaHistorico : historico) {
                 %>
                 <tr>
+                    <td><%= linhaHistorico.getCodCompra() %></td>
                     <td><%= linhaHistorico.getDataCompra()%></td>
                     <td><%= linhaHistorico.getValorCompra()%></td>
+                    <td><a href="#">Visualizar</></td>
                 </tr>
                 <%
                     }

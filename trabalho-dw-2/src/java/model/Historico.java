@@ -5,6 +5,9 @@
  */
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Romulo
@@ -14,7 +17,13 @@ public class Historico {
     private int id;
     private String dataCompra;
     private double valorCompra;
+    private int codCompra;
+    private List<Ingresso> ingressosComprados;
 
+    public Historico() {
+        this.ingressosComprados = new ArrayList<>();
+    }
+    
     public int getId() {
         return id;
     }
@@ -38,6 +47,23 @@ public class Historico {
     public void setValorCompra(double valorCompra) {
         this.valorCompra = valorCompra;
     }
+
+    public List<Ingresso> getIngressosComprados() {
+        return ingressosComprados;
+    }
+
+    public void setIngressosComprados(List<Ingresso> ingressosComprados) {
+        this.ingressosComprados = ingressosComprados;
+    }
+
+    public int getCodCompra() {
+        return codCompra;
+    }
+
+    public void setCodCompra(int codCompra) {
+        this.codCompra = codCompra;
+    }
+    
     
     @Override
     public String toString() {

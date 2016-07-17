@@ -21,10 +21,19 @@ public class Carrinho {
     }
 
     public List<Ingresso> getIngressos() {
-        return ingressos;
+        return this.ingressos;
     }
     
-    public void AdicionarCarrinho(Ingresso ingresso){
-        ingressos.add(ingresso);
+    public void adicionar(Ingresso ingresso){
+        this.ingressos.add(ingresso);
     }
+    
+    public double valorCompra() {
+        double valorTotal = 0;
+        for(Ingresso ingresso : this.ingressos) {
+            valorTotal += ingresso.getPreco();
+        }
+        return valorTotal;
+    }
+    
 }

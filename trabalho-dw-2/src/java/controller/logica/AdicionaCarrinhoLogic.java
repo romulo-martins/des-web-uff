@@ -23,8 +23,8 @@ import tipos.TipoIngresso;
  *
  * @author cafer
  */
-//@WebServlet("/adicionaCarrinho")
-public class AdicionaCarrinhoLogic implements Logica{ //extends HttpServlet {
+
+public class AdicionaCarrinhoLogic implements Logica{
 
 
     @Override
@@ -36,24 +36,9 @@ public class AdicionaCarrinhoLogic implements Logica{ //extends HttpServlet {
         
         Ingresso ingresso = new Ingresso(1, 100, TipoIngresso.Meia, evento);
         Carrinho c = (Carrinho) req.getSession().getAttribute("carrinho");
-        c.AdicionarCarrinho(ingresso);
+        c.adicionar(ingresso);
         return "/TestServlet";
 
     }
-//    @Override
-//    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        Carrinho carrinho = new Carrinho();
-//        HttpSession session = req.getSession();
-//        session.setAttribute("carrinho", carrinho);
-//
-//        int id = Integer.parseInt(req.getParameter("id"));
-//
-//        Evento evento = new Evento();
-//        Ingresso ingresso = new Ingresso(1, 100, TipoIngresso.Meia, evento);
-//        Carrinho c = (Carrinho) req.getSession().getAttribute("carrinho");
-//        c.AdicionarCarrinho(ingresso);
-//
-//        RequestDispatcher rd = req.getRequestDispatcher("/teste.jsp");
-//        rd.forward(req, resp);
-//    }
+
 }

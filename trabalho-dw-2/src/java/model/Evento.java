@@ -5,8 +5,6 @@
  */
 package model;
 
-import java.time.LocalDate;
-import tipos.TipoEvento;
 
 /**
  *
@@ -56,7 +54,7 @@ public class Evento {
     }
 
     public String getData() {
-        return LocalDate.now().toString();
+        return this.data;
     }
 
     public void setData(String data) {
