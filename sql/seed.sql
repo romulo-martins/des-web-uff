@@ -1,4 +1,11 @@
 
+/* Inserção de Clientes */
+INSERT INTO Cliente(id, nome, email, telefone, data_nascimento) VALUES(1, 'Joao', 'joao@hotmail.com', '(21)9784-5589', '15/08/1957');
+INSERT INTO Cliente(id, nome, email, telefone, data_nascimento) VALUES(2, 'Maria', 'mari@gmail.com', '(11)9841-7795', '03/04/1992');
+INSERT INTO Cliente(id, nome, email, telefone, data_nascimento) VALUES(3, 'Ana', 'aninha@yahoo.com', '(19)6588-1910', '07/11/1995');
+INSERT INTO Cliente(id, nome, email, telefone, data_nascimento) VALUES(4, 'Paulo', 'paulinho@hotmail.com', '(21)6798-4486', '23/04/1986');
+INSERT INTO Cliente(id, nome, email, telefone, data_nascimento) VALUES(5, 'Fatima', 'fatinha@hotmail.com', '(11)8956-2367', '05/06/1994');
+
 /* Inserção de Usuarios */
 INSERT INTO Usuario(id, uname, password, cliente_id) VALUES(1, 'ujoao', '123456', 1);
 INSERT INTO Usuario(id, uname, password, cliente_id) VALUES(2, 'umaria', '123456', 2);
@@ -7,12 +14,6 @@ INSERT INTO Usuario(id, uname, password, cliente_id) VALUES(4, 'upaulo', '123456
 INSERT INTO Usuario(id, uname, password, cliente_id) VALUES(5, 'ufatima', '123456', 5);
 
 
-/* Inserção de Clientes */
-INSERT INTO Cliente(id, nome, email, telefone, data_nascimento) VALUES(1, 'Joao', 'joao@hotmail.com', '(21)9784-5589', '15/08/1957');
-INSERT INTO Cliente(id, nome, email, telefone, data_nascimento) VALUES(2, 'Maria', 'mari@gmail.com', '(11)9841-7795', '03/04/1992');
-INSERT INTO Cliente(id, nome, email, telefone, data_nascimento) VALUES(3, 'Ana', 'aninha@yahoo.com', '(19)6588-1910', '07/11/1995');
-INSERT INTO Cliente(id, nome, email, telefone, data_nascimento) VALUES(4, 'Paulo', 'paulinho@hotmail.com', '(21)6798-4486', '23/04/1986');
-INSERT INTO Cliente(id, nome, email, telefone, data_nascimento) VALUES(5, 'Fatima', 'fatinha@hotmail.com', '(11)8956-2367', '05/06/1994');
 
 /* Inserção de exemplos de histórico */
 INSERT INTO Historico(id, data_compra, valor_compra, cliente_id) VALUES(1, '18/09/2001', 2.300, 1);

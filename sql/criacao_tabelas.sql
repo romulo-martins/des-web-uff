@@ -1,4 +1,14 @@
 
+/* criação de clientes */
+CREATE TABLE Cliente (
+    id INTEGER NOT NULL AUTO_INCREMENT,
+    nome VARCHAR(40),
+    email VARCHAR(40), 
+    telefone VARCHAR(40),
+    data_nascimento VARCHAR(40),
+    PRIMARY KEY (id)
+);
+
 /* criação de usuários  */
 CREATE TABLE Usuario(
 	id INTEGER NOT NULL AUTO_INCREMENT,
@@ -9,15 +19,6 @@ CREATE TABLE Usuario(
 	FOREIGN KEY(cliente_id) REFERENCES Cliente(id)
 );
 
-/* criação de clientes */
-CREATE TABLE Cliente (
-    id INTEGER NOT NULL AUTO_INCREMENT,
-    nome VARCHAR(40),
-    email VARCHAR(40), 
-    telefone VARCHAR(40),
-    data_nascimento VARCHAR(40),
-    PRIMARY KEY (id)
-);
 
 /* tabela de historico */
 CREATE TABLE Historico (
