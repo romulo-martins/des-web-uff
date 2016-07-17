@@ -30,7 +30,7 @@ public class EventoDao {
 
     public void adiciona(Evento evento) {
         String sql = "INSERT INTO evento "
-                + "(nome, descricao, data, hora, local)"
+                + "(nome, descricao, data_evento, hora, local_evento)"
                 + " VALUES (?, ?, ?, ?, ?)";
 
         try {
@@ -125,9 +125,10 @@ public class EventoDao {
         evento.setId(rs.getInt("id"));
         evento.setNome(rs.getString("nome"));
         evento.setDescricao(rs.getString("descricao"));
-        evento.setData("data");
-        evento.setLocal(rs.getString("local"));
+        evento.setData(rs.getString("data_evento"));
         evento.setHora(rs.getString("hora"));
+        evento.setImagem(rs.getString("imagem"));
+        evento.setLocal(rs.getString("local_evento"));
         return evento;
     }
 

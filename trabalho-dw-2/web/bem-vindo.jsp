@@ -17,11 +17,13 @@
         <div class="container">
             <% Usuario usuario = (Usuario) session.getAttribute("usuario");%>
             <h1>Loja virtual de ingressos</h1>
-            <hr />
+            <img src="img/ingresso-virtual.png" width="240" height="180" />
+            
             <% if (usuario != null) {%>
             <p>Bem vindo <em><%= usuario.getCliente().getNome()%></em>!</p>    
             <% } %>
-
+            
+            <hr />
             <a href="mvc?logica=ListaEventosLogic">Visualizar eventos</a> | 
             <% if (usuario != null) { %>
             <a href="detalhes-cliente.jsp">Meus dados</a> |

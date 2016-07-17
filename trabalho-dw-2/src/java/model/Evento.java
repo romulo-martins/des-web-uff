@@ -17,6 +17,7 @@ public class Evento {
     private String descricao;
     private String data; // muda para Date?
     private String hora; // muda para Date?
+    private String imagem;
     private String local;    
     
     public int getId() {
@@ -65,6 +66,14 @@ public class Evento {
 
     public void setLocal(String local) {
         this.local = local;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 
     @Override

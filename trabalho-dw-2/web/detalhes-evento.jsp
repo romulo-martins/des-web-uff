@@ -23,6 +23,7 @@
                 IngressoFactory factory = (IngressoFactory) request.getAttribute("ingresso_factory");
             %>
             <h1>Detalhes Evento</h1>
+            <img src="img/<%= evento.getImagem() %>" width="320" height="240"><br />
             Nome: <%= evento.getNome()%><br />
             Descricao: <%= evento.getDescricao()%><br />
             Data: <%= evento.getData()%><br />

@@ -36,7 +36,7 @@
                     <tr>
                         <td><%= linhaHistorico.getCodCompra() %></td>
                         <td><%= linhaHistorico.getDataCompra()%></td>
-                        <td><%= linhaHistorico.getValorCompra()%></td>
+                        <td>R$ <%= linhaHistorico.getValorCompra()%></td>
                         <td><a href="visualizarIngressos?cod=<%= linhaHistorico.getCodCompra() %>">Visualizar</></td>
                     </tr>
                     <%

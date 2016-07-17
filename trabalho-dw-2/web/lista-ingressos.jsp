@@ -33,7 +33,7 @@
                     <tr>
                         <td><%= ingresso.getEvento().getNome() %></td>
                         <td><%= ingresso.getTipo() %></td>
-                        <td><%= ingresso.getValorPago() %></td>
+                        <td>R$ <%= ingresso.getValorPago() %></td>
                     </tr>
                     <% }%>
                 </tbody>

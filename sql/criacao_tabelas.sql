@@ -19,17 +19,6 @@ CREATE TABLE Usuario(
 	FOREIGN KEY(cliente_id) REFERENCES Cliente(id)
 );
 
-/* criação de eventos */
-CREATE TABLE Evento (
-    id INTEGER NOT NULL AUTO_INCREMENT,	
-    nome VARCHAR(40),
-    descricao VARCHAR(100),
-	data VARCHAR(20),
-	hora VARCHAR(20),
-	local VARCHAR(100),
-    PRIMARY KEY (id)
-);
-
 /* Não precisa por enquanto */
 CREATE TABLE Endereco(
 	id INTEGER NOT NULL AUTO_INCREMENT,
@@ -41,24 +30,43 @@ CREATE TABLE Endereco(
 	PRIMARY KEY(id)
 );
 
-/* criação de ingresso */
-CREATE TABLE Ingresso(
+CREATE TABLE Evento (
+    id INTEGER NOT NULL AUTO_INCREMENT,	
+    nome VARCHAR(40),
+    descricao VARCHAR(100),
+	data_evento VARCHAR(40),
+	hora VARCHAR(20),
+	imagem VARCHAR(40),
+	local_evento VARCHAR(100),
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE Historico (
 	id INTEGER NOT NULL AUTO_INCREMENT,
-	valor DOUBLE,
-	quantidade INTEGER,
+	data_compra VARCHAR(40),
+	valor_compra DOUBLE, /* valor total da compra */
+	cod_compra INTEGER,
+	cliente_id INTEGER NOT NULL,
+	PRIMARY KEY(id), 
+	FOREIGN KEY(cliente_id) REFERENCES Cliente(id)
+);
+
+CREATE TABLE ingresso(
+	id INTEGER AUTO_INCREMENT,
+	valor_pago DOUBLE,
+	tipo_evento INTEGER, /* meia ou inteira */
+	cod_compra INTEGER,
 	evento_id INTEGER,
 	PRIMARY KEY(id),
 	FOREIGN KEY(evento_id) REFERENCES evento(id)
 );
 
-/* tabela de historico */
-CREATE TABLE Historico (
-	id INTEGER NOT NULL AUTO_INCREMENT,
-	data_compra VARCHAR(40),
-	valor_compra DOUBLE,
-	cliente_id INTEGER NOT NULL,
-	PRIMARY KEY(id), 
-	FOREIGN KEY(cliente_id) REFERENCES Cliente(id)
+CREATE TABLE ingresso_factory(
+	id INTEGER AUTO_INCREMENT,
+	valor_ingresso DOUBLE,
+	quantidade_ingressos INTEGER,
+	evento_id INTEGER,
+	PRIMARY KEY(id)
 );
 
 /* AUTO_INCREMENT no derby é GENERATED ALWAYS AS IDENTITY(START WITH 1, INCREMENT BY 1) */
