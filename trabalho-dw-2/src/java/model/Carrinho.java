@@ -28,10 +28,11 @@ public class Carrinho {
         this.ingressos.add(ingresso);
     }
     
+    // valor total da compra
     public double valorCompra() {
         double valorTotal = 0;
         for(Ingresso ingresso : this.ingressos) {
-            valorTotal += ingresso.getPreco();
+            valorTotal += ingresso.getValorPago();
         }
         return valorTotal;
     }

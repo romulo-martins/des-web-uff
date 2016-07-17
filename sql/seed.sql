@@ -13,15 +13,6 @@ INSERT INTO Usuario(id, uname, password, cliente_id) VALUES(3, 'uana', '123456',
 INSERT INTO Usuario(id, uname, password, cliente_id) VALUES(4, 'upaulo', '123456', 4);
 INSERT INTO Usuario(id, uname, password, cliente_id) VALUES(5, 'ufatima', '123456', 5);
 
-
-
-/* Inserção de exemplos de histórico */
-INSERT INTO Historico(id, data_compra, valor_compra, cliente_id) VALUES(1, '18/09/2001', 2.300, 1);
-INSERT INTO Historico(id, data_compra, valor_compra, cliente_id) VALUES(2, '07/11/2006', 3.700, 1);
-INSERT INTO Historico(id, data_compra, valor_compra, cliente_id) VALUES(3, '20/07/2012', 300, 3);
-INSERT INTO Historico(id, data_compra, valor_compra, cliente_id) VALUES(4, '04/08/2011', 250, 3);
-
-
 /* Inserção de */
 INSERT INTO Evento(id, nome, descricao, data, hora, local) VALUES(1, 'JOE SATRIANI', 'Show', '07/12/2016', '21h00', 'Espaço das Américas, Rua Tagipuru, 795 - Barra Funda, São Paulo - SP');
 INSERT INTO Evento(id, nome, descricao, data, hora, local) VALUES(2, 'ANGRA', 'Show', '13/09/2016', '21h00', 'Tom Brasil, Rua Bragança Paulista, 1281 - Chacara Santo Antonio São Paulo - SP');
@@ -31,9 +22,18 @@ INSERT INTO Evento(id, nome, descricao, data, hora, local) VALUES(5, 'SIMPLE PLA
 INSERT INTO Evento(id, nome, descricao, data, hora, local) VALUES(6, 'THE SISTERS OF MERCY', 'Show', '16/10/2016', '21h45', 'Tom Brasil, Rua Bragança Paulista, 1281 - Chacara Santo Antonio, São Paulo - SP');
 INSERT INTO Evento(id, nome, descricao, data, hora, local) VALUES(7, 'A COR DO SOM', 'Show', '10/8/2016', '21h00', 'Teatro Bradesco, Rua Palestra Itália, Perdizes, São Paulo - SP');
 
+/* Inserção de Endereços dos eventos */
+INSERT INTO Enderecos(id, rua, bairro, cidade, estado, complemento) VALUES('Rua Bragança Paulista, 1281', 'Chacara Santo Antonio', 'São Paulo', 'SP', 'Tom Brasil');
+INSERT INTO Enderecos(id, rua, bairro, cidade, estado, complemento) VALUES('Rua Palestra Itália, 1800', 'Barra Funda', 'São Paulo', 'SP', 'Allianz Parque');
+INSERT INTO Enderecos(id, rua, bairro, cidade, estado, complemento) VALUES('Avenida Imperatriz Leopoldina, 550', '', 'São Paulo', 'SP', 'Teatro UMC');
 
-/* Inserção de Endereços */
-INSERT INTO Enderecos(rua, bairro, cidade, estado, complemento) VALUES('Rua Bragança Paulista, 1281', 'Chacara Santo Antonio', 'São Paulo', 'SP', 'Tom Brasil');
-INSERT INTO Enderecos(rua, bairro, cidade, estado, complemento) VALUES('Rua Palestra Itália, 1800', 'Barra Funda', 'São Paulo', 'SP', 'Allianz Parque');
-INSERT INTO Enderecos(rua, bairro, cidade, estado, complemento) VALUES('Avenida Imperatriz Leopoldina, 550', '', 'São Paulo', 'SP', 'Teatro UMC');
+
+/* Insersão do valor dos preçõs dos ingressos e do estoque de ingressos de cada evento */
+INSERT INTO ingresso_factory(id, valor_ingresso, quantidade_ingressos, evento_id) VALUES (1, 250, 15000, 1);
+INSERT INTO ingresso_factory(id, valor_ingresso, quantidade_ingressos, evento_id) VALUES (2, 180, 2500, 2);
+INSERT INTO ingresso_factory(id, valor_ingresso, quantidade_ingressos, evento_id) VALUES (3, 375, 30000, 3);
+INSERT INTO ingresso_factory(id, valor_ingresso, quantidade_ingressos, evento_id) VALUES (4, 120, 7300, 4);
+INSERT INTO ingresso_factory(id, valor_ingresso, quantidade_ingressos, evento_id) VALUES (5, 190, 8000, 5);
+INSERT INTO ingresso_factory(id, valor_ingresso, quantidade_ingressos, evento_id) VALUES (6, 160, 12000, 6);
+INSERT INTO ingresso_factory(id, valor_ingresso, quantidade_ingressos, evento_id) VALUES (7, 90, 800, 7);
 

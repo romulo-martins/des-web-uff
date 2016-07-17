@@ -10,5 +10,5 @@ package tipos;
  * @author Romulo
  */
 public enum TipoEvento {
-    Cinema, Show, Teatro
+    Cinema, Show, Teatro;
 }

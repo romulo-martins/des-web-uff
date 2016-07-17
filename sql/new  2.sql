@@ -4,7 +4,7 @@ CREATE TABLE Evento (
     id INTEGER NOT NULL AUTO_INCREMENT,	
     nome VARCHAR(40),
     descricao VARCHAR(100),
-	data_eveto DATE,
+	data_evento DATE,
 	hora VARCHAR(20),
 	local_evento VARCHAR(100),
     PRIMARY KEY (id)
@@ -21,11 +21,19 @@ CREATE TABLE Historico (
 );
 
 CREATE TABLE ingresso(
-	id INTEGER AUTO_IMCREMENT,
-	valor DOUBLE,
-	tipo INTEGER, /* meia ou inteira */
+	id INTEGER AUTO_INCREMENT,
+	valor_pago DOUBLE,
+	tipo_evento INTEGER, /* meia ou inteira */
 	cod_compra INTEGER,
 	evento_id INTEGER,
 	PRIMARY KEY(id),
 	FOREIGN KEY(evento_id) REFERENCES evento(id)
+);
+
+CREATE TABLE ingresso_factory(
+	id INTEGER AUTO_INCREMENT,
+	valor_ingresso DOUBLE,
+	quantidade_ingressos INTEGER,
+	evento_id INTEGER,
+	PRIMARY KEY(id)
 );

@@ -57,8 +57,12 @@ public class HistoricoDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        adicionaIngressosComprados(carrinho, codigoCompra);
-
+        
+        IngressoDao dao = new IngressoDao();
+        for(Ingresso ingresso : carrinho.getIngressos()) {
+            ingresso.setCodCompra(codigoCompra);
+            dao.adiciona(ingresso);
+        }
     }
 
     public List<Historico> busca(int idCliente) {
@@ -95,25 +99,4 @@ public class HistoricoDao {
     private int getCodigoCompra(int id, double valorCompra, Date dataAtual) {
         return Math.abs((id + valorCompra + dataAtual.toString()).hashCode());
     }
-
-    private void adicionaIngressosComprados(Carrinho carrinho, int codigoCompra) {
-        String sql = "INSERT INTO ingressos_comprados(codigo_compra, ingresso_id) "
-                + "VALUES(?, ?)";
-        try {
-            // prepared statement para inserção
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            
-            for(Ingresso ingresso : carrinho.getIngressos()) {
-                stmt.setInt(1, codigoCompra);
-                stmt.setDouble(2, ingresso.getId());
-                stmt.execute();                
-            }
-
-            // executa
-            stmt.close();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
 }

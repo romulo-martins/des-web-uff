@@ -5,12 +5,6 @@
  */
 package controller.logica;
 
-import dao.EventoDao;
-import java.io.IOException;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -34,9 +28,9 @@ public class AdicionaCarrinhoLogic implements Logica{
         session.setAttribute("carrinho", carrinho);
         Evento evento = new Evento();
         
-        Ingresso ingresso = new Ingresso(1, 100, TipoIngresso.Meia, evento);
+        //Ingresso ingresso = new Ingresso(1, 100, TipoIngresso.Meia, evento);
+        //c.adicionar(ingresso);
         Carrinho c = (Carrinho) req.getSession().getAttribute("carrinho");
-        c.adicionar(ingresso);
         return "/TestServlet";
 
     }

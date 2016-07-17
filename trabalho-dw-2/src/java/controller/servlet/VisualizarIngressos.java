@@ -3,41 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package controller.servlet;
 
-import dao.EventoDao;
-import dao.IngressoFactoryDao;
+import dao.IngressoDao;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Evento;
-import model.IngressoFactory;
+import model.Ingresso;
 
 /**
  *
  * @author Romulo
  */
-
-@WebServlet("/detalhesEvento")
-public class DetalhesEvento extends HttpServlet {
+@WebServlet("/visualizarIngressos")
+public class VisualizarIngressos extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
-        int id = Integer.parseInt(req.getParameter("id"));
+        int codCompra = Integer.parseInt(req.getParameter("cod"));
 
-        // salva as alteraçõs do cliente
-        Evento evento = new EventoDao().busca(id);
-        IngressoFactory factory = new IngressoFactoryDao().getFactory(evento);
-        
-        req.setAttribute("evento", evento);
-        req.setAttribute("ingresso_factory", factory);
+        List<Ingresso> ingressos = new IngressoDao().getIngressos(codCompra);
+        req.setAttribute("ingressos", ingressos);
 
-        RequestDispatcher rd = req.getRequestDispatcher("/detalhes-evento.jsp");
+        RequestDispatcher rd = req.getRequestDispatcher("/lista-ingressos.jsp");
         rd.forward(req, resp);
     }
 

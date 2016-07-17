@@ -12,22 +12,12 @@ import tipos.TipoIngresso;
  * @author Romulo
  */
 public class Ingresso {
-    
+
     private int id;
-    private int preco;
+    private double valorPago;
+    private int codCompra;
     private Evento evento;
-    private final TipoIngresso tipo;
-
-    public Ingresso(int id, int preco, TipoIngresso tipo, Evento evento) {
-        this.id = id;
-        this.preco = preco;
-        this.tipo = tipo;
-        this.evento = evento;
-    }
-
-    public Ingresso() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    private TipoIngresso tipo;
 
     public int getId() {
         return id;
@@ -37,14 +27,6 @@ public class Ingresso {
         this.id = id;
     }
 
-    public double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(int preco) {
-        this.preco = preco;
-    }
-
     public Evento getEvento() {
         return evento;
     }
@@ -52,5 +34,29 @@ public class Ingresso {
     public void setEvento(Evento evento) {
         this.evento = evento;
     }
-    
+
+    public double getValorPago() {
+        return valorPago;
+    }
+
+    public void setValorPago(double valorPago) {
+        this.valorPago = valorPago;
+    }
+
+    public TipoIngresso getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoIngresso tipo) {
+        this.tipo = tipo;
+    }
+
+    public int getCodCompra() {
+        return codCompra;
+    }
+
+    public void setCodCompra(int codCompra) {
+        this.codCompra = codCompra;
+    }
+
 }

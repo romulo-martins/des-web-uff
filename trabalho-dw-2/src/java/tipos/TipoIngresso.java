@@ -10,5 +10,16 @@ package tipos;
  * @author Romulo
  */
 public enum TipoIngresso {
-    Meia, Inteira
+    Meia, Inteira;
+
+    public static TipoIngresso getTipo(int valor) {
+        switch(valor) {
+            case 0:
+                return Meia;
+            case 1:
+                return Inteira;
+        }
+        return null;
+    }
+
 }
