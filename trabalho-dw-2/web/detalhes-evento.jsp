@@ -23,19 +23,36 @@
                 IngressoFactory factory = (IngressoFactory) request.getAttribute("ingresso_factory");
             %>
             <h1>Detalhes Evento</h1>
-            <img src="img/<%= evento.getImagem() %>" width="320" height="240"><br />
+            <img src="img/<%= evento.getImagem()%>" width="320" height="240"><br />
             Nome: <%= evento.getNome()%><br />
             Descricao: <%= evento.getDescricao()%><br />
             Data: <%= evento.getData()%><br />
             Hora: <%= evento.getHora()%><br />
             Local: <%= evento.getLocal()%><br />
 
-            Valor: <%= factory.getValorIngresso() %> <br />
-            Ingressos disponiveis: <%= factory.getQuantidadeIngresso() %> 
+            Valor: <%= factory.getValorIngresso()%> <br />
+            Ingressos disponiveis: <%= factory.getQuantidadeIngresso()%> 
+            <% if (usuario != null) { %>
+            <form action="mvc" method="get">
+                <input type="hidden" name="logica" value="AdicionaCarrinhoLogic" >
+                <input type="hidden" name="id" value="<%= evento.getId()%>">
+                Qtd:
+                <select name="qtd">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <input type="radio" name="TipoEntrada" value="0" checked>Meia
+                <input type="radio" name="TipoEntrada" value="1">Inteira
+
+                <input type="submit" value="Adiciona Carrinho">
+            </form>
+            <% }%>
             <hr />
             <a href="mvc?logica=ListaEventosLogic">Voltar</a>
             <% if (usuario != null) { %>
-                | <a href="">Adicionar ao carrinho</a>
+            | <a href="listar-carrinho.jsp">Meu Carrinho</a>
             <% }%>
         </div>
     </body>

@@ -6,11 +6,14 @@
 package controller.logica;
 
 import dao.EventoDao;
+import dao.IngressoFactoryDao;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Carrinho;
 import model.Evento;
+import model.Ingresso;
+import model.IngressoFactory;
 import tipos.TipoIngresso;
 
 /**
@@ -21,24 +24,16 @@ public class AdicionaCarrinhoLogic implements Logica {
 
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
-        Carrinho carrinho = new Carrinho();
-        HttpSession session = req.getSession();
-        session.setAttribute("carrinho", carrinho);
-
         Carrinho c = (Carrinho) req.getSession().getAttribute("carrinho");
-        EventoDao dao = new EventoDao();
-        Evento evento = dao.busca(Integer.parseInt(req.getParameter("id")));
+        Evento evento = new EventoDao().busca(Integer.parseInt(req.getParameter("id")));
 
-        TipoIngresso tipo = TipoIngresso.Inteira;
-        if (req.getParameter("TipoEntrada").equals("1")) {
-            tipo = TipoIngresso.Meia;
-        }
-
-
+        IngressoFactory iFactory;
         for (int i = 0; i < Integer.parseInt(req.getParameter("qtd")); i++) {
-            //Ticket entrada = new Ticket(evento.getIngresso(), tipo);
-            //c.adicionarTicket(entrada);
+            iFactory = new IngressoFactoryDao().getFactory(evento);
+            Ingresso ingresso = iFactory.gerarIngresso(TipoIngresso.getTipo(Integer.parseInt(req.getParameter("TipoEntrada"))));
+            c.adicionar(ingresso);
         }
-        return "/AdicionarCarrinho";
+        return "/detalhesEvento?id="+req.getParameter("id");
     }
+
 }

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Carrinho;
 import model.Usuario;
 
 /**
@@ -30,12 +31,13 @@ public class ValidaUsuario extends HttpServlet {
         String password = req.getParameter("password");
 
         Usuario usuario = validateLogin(name, password);
-
+        Carrinho carrinho = new Carrinho();
         if (usuario == null) {
             rd = req.getRequestDispatcher("/loginError.jsp");
         } else {
             HttpSession session = req.getSession();
             session.setAttribute("usuario", usuario);
+            session.setAttribute("carrinho", carrinho);
             rd = req.getRequestDispatcher("/loginSuccess.jsp");
         }
 

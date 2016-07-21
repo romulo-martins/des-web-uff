@@ -4,6 +4,7 @@
     Author     : cafer
 --%>
 
+<%@page import="model.Ingresso"%>
 <%@page import="model.Ticket"%>
 <%@page import="model.Carrinho"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -26,14 +27,14 @@
             <tbody>
                 <%
                     Carrinho c = (Carrinho) request.getSession().getAttribute("carrinho");
-                    for (Ticket ticket : c.getEntrada()) {
+                    for (Ingresso ingresso : c.getIngressos()) {
                 %>
                 <tr>
-                    <td><%= ticket.getNome()%></td>
-                    <td><%= ticket.getPreco()%></td>
-                    <td><%= ticket.getTipoTicket().name()%></td>
+                    <td><%= ingresso.getEvento().getNome()%></td>
+                    <td><%= ingresso.getValorPago()%></td>
+                    <td><%= ingresso.getTipo()%></td>
                     <td>
-                        <a href="mvc?logica=RemoverCarrinhoLogic&id=<%= ticket.getId()%>">Remover</a>
+                        <a href="mvc?logica=RemoverCarrinhoLogic&id=<%= ingresso.getId()%>">Remover</a>
                     </td>
                 </tr>
                 <%

@@ -42,8 +42,8 @@
                                 <option value="3">3</option>
                                 <option value="4">4</option>
                             </select>
-                            <input type="radio" name="TipoEntrada" value="1" checked>Meia
-                            <input type="radio" name="TipoEntrada" value="2">Inteira
+                            <input type="radio" name="TipoEntrada" value="0" checked>Meia
+                            <input type="radio" name="TipoEntrada" value="1">Inteira
 
                             <input type="submit" value="Adiciona Carrinho">
                         </form>
