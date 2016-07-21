@@ -5,26 +5,23 @@
  */
 package controller.logica;
 
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import model.Carrinho;
-import model.Ticket;
 
 /**
  *
  * @author cafer
  */
-public class RemoverCarrinhoLogic implements Logica{
+public class PagamentoLogic implements Logica{
 
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
         Carrinho c = (Carrinho) req.getSession().getAttribute("carrinho");
-        
-        c.removerTicket(Integer.parseInt(req.getParameter("id")));
-        
-        return "listar-carrinho.jsp";
+        c.getEntrada();
+        return "";
     }
+    
+    
     
 }

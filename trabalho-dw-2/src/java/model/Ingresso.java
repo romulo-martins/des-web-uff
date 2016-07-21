@@ -5,7 +5,6 @@
  */
 package model;
 
-import tipos.TipoIngresso;
 
 /**
  *

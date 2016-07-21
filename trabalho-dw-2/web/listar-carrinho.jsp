@@ -14,6 +14,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <p>Meu Carrinho</p>
         <table>
             <thead>
                 <tr>
@@ -30,7 +31,7 @@
                 <tr>
                     <td><%= ticket.getNome()%></td>
                     <td><%= ticket.getPreco()%></td>
-                    <td><%= ticket.getTipoTicket().name() %></td>
+                    <td><%= ticket.getTipoTicket().name()%></td>
                     <td>
                         <a href="mvc?logica=RemoverCarrinhoLogic&id=<%= ticket.getId()%>">Remover</a>
                     </td>
@@ -40,5 +41,7 @@
                 %>
             </tbody>
         </table>
-    </body>
+        <a href="forma-pagamento.jsp">Comprar</a>
+    </form>
+</body>
 </html>

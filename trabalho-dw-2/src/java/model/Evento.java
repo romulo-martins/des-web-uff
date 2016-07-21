@@ -7,7 +7,6 @@ package model;
 
 import java.time.LocalDate;
 import tipos.TipoEvento;
-import tipos.TipoIngresso;
 
 /**
  *

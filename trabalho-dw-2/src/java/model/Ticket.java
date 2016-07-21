@@ -41,5 +41,4 @@ public class Ticket {
         this.tipoTicket = tipoTicket;
         this.nome = "Show das poderosas"; //ingresso.getEvento().getNome();
     }
-
 }

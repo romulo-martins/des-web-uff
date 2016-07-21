@@ -29,11 +29,13 @@ public class Carrinho {
         this.tickets.add(entrada);
     }
 
-    public void removerTicket(int id) {
+    public boolean removerTicket(int id) {
         for (Ticket t : tickets) {
             if (t.getId() == id) {
-               tickets.remove(t);
+               tickets.remove(id);
+               return true;
             }
         }
+        return false;
     }
 }
