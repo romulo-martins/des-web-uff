@@ -10,12 +10,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/bootstrap.css" >
         <title>Logado com sucesso</title>
     </head>
     <body>
-        <% Usuario usuario = (Usuario) session.getAttribute("usuario"); %>
-        <h1>Voce está logado <%= usuario.getCliente().getNome() %></h1>
-        
-        <a href="bem-vindo.jsp">pagina principal</a>
+        <div class="container">
+            <% Usuario usuario = (Usuario) session.getAttribute("usuario"); %>
+            <h1>Voce está logado <%= usuario.getCliente().getNome() %></h1>
+
+            <a href="bem-vindo.jsp">Pagina principal</a>
+        </div>
     </body>
 </html>

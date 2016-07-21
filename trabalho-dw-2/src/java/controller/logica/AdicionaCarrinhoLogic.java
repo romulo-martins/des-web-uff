@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Carrinho;
-import model.Ticket;
 import model.Evento;
 import tipos.TipoIngresso;
 
@@ -25,6 +24,7 @@ public class AdicionaCarrinhoLogic implements Logica {
         Carrinho carrinho = new Carrinho();
         HttpSession session = req.getSession();
         session.setAttribute("carrinho", carrinho);
+
         Carrinho c = (Carrinho) req.getSession().getAttribute("carrinho");
         EventoDao dao = new EventoDao();
         Evento evento = dao.busca(Integer.parseInt(req.getParameter("id")));
@@ -34,9 +34,10 @@ public class AdicionaCarrinhoLogic implements Logica {
             tipo = TipoIngresso.Meia;
         }
 
+
         for (int i = 0; i < Integer.parseInt(req.getParameter("qtd")); i++) {
-            Ticket entrada = new Ticket(evento.getIngresso(), tipo);
-            c.adicionarTicket(entrada);
+            //Ticket entrada = new Ticket(evento.getIngresso(), tipo);
+            //c.adicionarTicket(entrada);
         }
         return "/AdicionarCarrinho";
     }

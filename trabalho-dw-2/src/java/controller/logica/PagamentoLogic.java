@@ -18,7 +18,7 @@ public class PagamentoLogic implements Logica{
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
         Carrinho c = (Carrinho) req.getSession().getAttribute("carrinho");
-        c.getEntrada();
+        //c.getEntrada();
         return "";
     }
     

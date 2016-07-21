@@ -11,6 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/bootstrap.css" >
         <title>JSP Page</title>
     </head>
     <body>
@@ -26,7 +27,6 @@
                 <tr>
                     <td><%= evento.getNome()%></td>
                     <td><%= evento.getDescricao()%></td>
-                    <td><%= evento.getTipoEvento()%></td>
                     <td><%= evento.getData()%></td>
                     <td><%= evento.getHora()%></td>
                     <td><%= evento.getLocal()%></td>

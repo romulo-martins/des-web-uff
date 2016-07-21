@@ -11,44 +11,46 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/bootstrap.css" >
         <title>Eventos</title>
     </head>
     <body>
-        <h1>Lista de Eventos</h1>
-        <hr />
-        <table>
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Descricao</th>
-                    <th>Data</th>
-                    <th>Hora</th>
-                    <th>Local</th>
-                    <th></th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <%
-                    List<Evento> eventos = (List) request.getAttribute("eventos");
-                    for (Evento evento : eventos) {
-                %>
-                <tr>
-                    <td><%= evento.getNome()%></td>
-                    <td><%= evento.getDescricao()%></td>
-                    <td><%= evento.getData()%></td>
-                    <td><%= evento.getHora()%></td>
-                    <td><%= evento.getLocal()%></td>
-                    <td>
-                        <a href="detalhesEvento?id=<%= evento.getId()%>">Detalhes</a>
-                    </td>
-                </tr>
-                <%
-                    }
-                %>
-            </tbody>
-        </table>
-        <hr />
-        <a href="bem-vindo.jsp">Pagina principal</a>
+        <div class="container">
+            <h1>Lista de Eventos</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Descricao</th>
+                        <th>Data</th>
+                        <th>Hora</th>
+                        <th>Local</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        List<Evento> eventos = (List) request.getAttribute("eventos");
+                        for (Evento evento : eventos) {
+                    %>
+                    <tr>
+                        <td><%= evento.getNome()%></td>
+                        <td><%= evento.getDescricao()%></td>
+                        <td><%= evento.getData()%></td>
+                        <td><%= evento.getHora()%></td>
+                        <td><%= evento.getLocal()%></td>
+                        <td>
+                            <a href="detalhesEvento?id=<%= evento.getId()%>">Detalhes</a>
+                        </td>
+                    </tr>
+                    <%
+                        }
+                    %>
+                </tbody>
+            </table>
+            <hr />
+            <a href="bem-vindo.jsp">Pagina principal</a>
+        </div>
     </body>
 </html>

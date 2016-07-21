@@ -7,35 +7,41 @@ package model;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.jasper.tagplugins.jstl.ForEach;
-
 /**
  *
  * @author cafer
  */
 public class Carrinho {
 
-    private List<Ticket> tickets;
+    private List<Ingresso> ingressos;
 
     public Carrinho() {
-        this.tickets = new ArrayList<>();
+        this.ingressos = new ArrayList<>();
     }
 
-    public List<Ticket> getEntrada() {
-        return tickets;
+    public List<Ingresso> getIngressos() {
+        return this.ingressos;
     }
-
-    public void adicionarTicket(Ticket entrada) {
-        this.tickets.add(entrada);
+    
+    public void adicionar(Ingresso ingresso){
+        this.ingressos.add(ingresso);
     }
-
     public boolean removerTicket(int id) {
-        for (Ticket t : tickets) {
-            if (t.getId() == id) {
-               tickets.remove(id);
+        for (Ingresso i : ingressos) {
+            if (i.getId() == id) {
+               ingressos.remove(id);
                return true;
             }
         }
         return false;
+    }
+    
+    // valor total da compra
+    public double valorCompra() {
+        double valorTotal = 0;
+        for(Ingresso ingresso : this.ingressos) {
+            valorTotal += ingresso.getValorPago();
+        }
+        return valorTotal;
     }
 }

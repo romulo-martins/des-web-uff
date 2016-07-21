@@ -25,8 +25,8 @@ public class EnderecoDao {
     public EnderecoDao(Connection connection) {
         this.connection = connection;
     }
-    
-        public void adiciona(Endereco endereco) {
+
+    public void adiciona(Endereco endereco) {
         String sql = "INSERT INTO enderecos "
                 + "(rua, bairro, cidade, estado, complemento)"
                 + " VALUES (?, ?, ?, ?, ?)";
@@ -108,7 +108,6 @@ public class EnderecoDao {
             throw new RuntimeException(e);
         }
     }
-
 
     public List<Endereco> getLista() {
         List<Endereco> enderecos = new ArrayList<>();

@@ -5,6 +5,8 @@
  */
 package model;
 
+import tipos.TipoIngresso;
+
 
 /**
  *
@@ -13,25 +15,10 @@ package model;
 public class Ingresso {
 
     private int id;
-    private int preco;
-    private int qtdEstoque;
-
-    public Ingresso(int preco, int qtdEstoque, Evento evento) {
-        this.preco = preco;
-        this.qtdEstoque = qtdEstoque;
-        this.evento = evento;
-    }
-    
-    public void setQtdEstoque(int qtdEstoque) {
-        this.qtdEstoque = qtdEstoque;
-    }
-
-    public int getQtdEstoque() {
-        return qtdEstoque;
-    }
+    private double valorPago;
+    private int codCompra;
     private Evento evento;
-    //private final TipoIngresso tipo;
-
+    private TipoIngresso tipo;
 
     public int getId() {
         return id;
@@ -41,20 +28,36 @@ public class Ingresso {
         this.id = id;
     }
 
-    public int getPreco() {
-        return preco;
-    }
-
-    public void setPreco(int preco) {
-        this.preco = preco;
-    }
-
     public Evento getEvento() {
         return evento;
     }
 
     public void setEvento(Evento evento) {
         this.evento = evento;
+    }
+
+    public double getValorPago() {
+        return valorPago;
+    }
+
+    public void setValorPago(double valorPago) {
+        this.valorPago = valorPago;
+    }
+
+    public TipoIngresso getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoIngresso tipo) {
+        this.tipo = tipo;
+    }
+
+    public int getCodCompra() {
+        return codCompra;
+    }
+
+    public void setCodCompra(int codCompra) {
+        this.codCompra = codCompra;
     }
 
 }

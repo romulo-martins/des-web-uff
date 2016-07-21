@@ -5,9 +5,6 @@
  */
 package model;
 
-import java.time.LocalDate;
-import tipos.TipoEvento;
-
 /**
  *
  * @author Romulo
@@ -20,32 +17,8 @@ public class Evento {
     private String descricao;
     private String data; // muda para Date?
     private String hora; // muda para Date?
+    private String imagem;
     private String local;    
-    private TipoEvento tipoEvento;
-    
-    private Ingresso ingresso;
-
-    public void criarIngresso(int valor, int qtdEstoque) {
-        this.ingresso = new Ingresso(valor, qtdEstoque, this);
-    }
-    
-    public Ingresso getIngresso() {
-        return ingresso;
-    }
-
-    public TipoEvento getTipoEvento() {
-        return tipoEvento;
-    }
-    //login Lcc  senha Abc123#
-    private int qtdEstoque;
-
-    public void setQtdEstoque(int qtdEstoque) {
-        this.qtdEstoque = qtdEstoque;
-    }
-
-    public int getQtdEstoque() {
-        return qtdEstoque;
-    }
     
     public int getId() {
         return id;
@@ -72,7 +45,7 @@ public class Evento {
     }
 
     public String getData() {
-        return LocalDate.now().toString();
+        return this.data;
     }
 
     public void setData(String data) {
@@ -93,6 +66,14 @@ public class Evento {
 
     public void setLocal(String local) {
         this.local = local;
+    }
+
+    public String getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
 
     @Override

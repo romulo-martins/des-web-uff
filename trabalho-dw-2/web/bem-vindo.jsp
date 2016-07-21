@@ -10,17 +10,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/bootstrap.css" >
         <title>Bem vindo</title>
     </head>
     <body>
-        <% Usuario usuario = (Usuario) session.getAttribute("usuario");%>
-        <h1>Bem vindo a loja virtual de ingressos</h1>
-        <a href="mvc?logica=ListaEventosLogic">Visualizar eventos</a> | 
-
-        <% if (usuario != null) { %>
-            <a href="detalhes-cliente.jsp">Meus dados</a>
-        <% } else { %>
+        <div class="container">
+            <% Usuario usuario = (Usuario) session.getAttribute("usuario");%>
+            <h1>Loja virtual de ingressos</h1>
+            <img src="img/ingresso-virtual.png" width="240" height="180" />
+            
+            <% if (usuario != null) {%>
+            <p>Bem vindo <em><%= usuario.getCliente().getNome()%></em>!</p>    
+            <% } %>
+            
+            <hr />
+            <a href="mvc?logica=ListaEventosLogic">Visualizar eventos</a> | 
+            <% if (usuario != null) { %>
+            <a href="detalhes-cliente.jsp">Meus dados</a> |
+            <a href="logout">Sair</a>
+            <% } else { %>
             <a href="login.jsp">Realizar Login</a>
-        <% } %>
+            <% }%>            
+        </div>
     </body>
 </html>

@@ -6,6 +6,7 @@
 package controller.servlet;
 
 import dao.EventoDao;
+import dao.IngressoFactoryDao;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,11 +15,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Evento;
+import model.IngressoFactory;
 
 /**
  *
  * @author Romulo
  */
+
 @WebServlet("/detalhesEvento")
 public class DetalhesEvento extends HttpServlet {
 
@@ -28,10 +31,11 @@ public class DetalhesEvento extends HttpServlet {
         int id = Integer.parseInt(req.getParameter("id"));
 
         // salva as alteraçõs do cliente
-        EventoDao dao = new EventoDao();
-        Evento evento = dao.busca(id);
+        Evento evento = new EventoDao().busca(id);
+        IngressoFactory factory = new IngressoFactoryDao().getFactory(evento);
         
         req.setAttribute("evento", evento);
+        req.setAttribute("ingresso_factory", factory);
 
         RequestDispatcher rd = req.getRequestDispatcher("/detalhes-evento.jsp");
         rd.forward(req, resp);
