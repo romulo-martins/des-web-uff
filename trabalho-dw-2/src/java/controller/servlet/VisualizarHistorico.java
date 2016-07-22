@@ -7,6 +7,7 @@ package controller.servlet;
 
 import dao.HistoricoDao;
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,9 +29,12 @@ public class VisualizarHistorico extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         // altera a sessao para os dados novos do usuário
         Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
+        
+        // obtem da requisição a conexão do banco de dados
+        Connection connection = (Connection) req.getAttribute("conexao");
 
         // salva as alteraçõs do cliente
-        HistoricoDao dao = new HistoricoDao();
+        HistoricoDao dao = new HistoricoDao(connection);
         List<Historico> historico = dao.busca(usuario.getCliente().getId());
         
         req.setAttribute("historico", historico);

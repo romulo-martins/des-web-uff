@@ -26,25 +26,29 @@ public class UsuarioDao {
         this.connection = new ConnectionFactory().getConnection();
     }
 
+    public UsuarioDao(Connection connection) {
+        this.connection = connection;
+    }
+
     public Usuario getUsuario(String uname) {
         String sql = "SELECT * "
                 + "FROM usuario "
                 + "WHERE uname = ?";
 
         Usuario usuario = null;
-        try {         
+        try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
             stmt.setString(1, uname);
-            
+
             ResultSet rs = stmt.executeQuery();
             rs.next();
             usuario = new Usuario(rs.getString("uname"), rs.getString("password"));
-            
+
             int clienteId = rs.getInt("cliente_id");
             ClienteDao dao = new ClienteDao();
             Cliente cliente = dao.busca(clienteId);
             usuario.setCliente(cliente);
-            
+
             rs.close();
             stmt.close();
         } catch (SQLException e) {

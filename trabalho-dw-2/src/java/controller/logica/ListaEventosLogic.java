@@ -6,6 +6,7 @@
 package controller.logica;
 
 import dao.EventoDao;
+import java.sql.Connection;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,13 +21,14 @@ public class ListaEventosLogic implements Logica {
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
 
-        EventoDao dao = new EventoDao();
-        
-        List<Evento> eventos = dao.getLista();
-        
+        // obtem da requisição a conexão do banco de dados
+        Connection connection = (Connection) req.getAttribute("conexao");
+
+        List<Evento> eventos = new EventoDao(connection).getLista();
+
         req.setAttribute("eventos", eventos);
-        
+
         return "lista-eventos.jsp";
     }
-    
+
 }

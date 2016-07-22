@@ -12,7 +12,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import jdbc.ConnectionFactory;
-import model.Endereco;
 import model.Evento;
 import model.Ingresso;
 import tipos.TipoIngresso;
@@ -27,6 +26,10 @@ public class IngressoDao {
 
     public IngressoDao() {
         this.connection = new ConnectionFactory().getConnection();
+    }
+
+    public IngressoDao(Connection connection) {
+        this.connection = connection;
     }
 
     public void adiciona(Ingresso ingresso) {
@@ -48,9 +51,9 @@ public class IngressoDao {
             throw new RuntimeException(e);
         }
     }
-    
+
     public Ingresso busca(int id) {
-                String sql = "SELECT * FROM ingresso WHERE id=?";
+        String sql = "SELECT * FROM ingresso WHERE id=?";
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
             stmt.setInt(1, id);
@@ -89,7 +92,6 @@ public class IngressoDao {
             throw new RuntimeException(e);
         }
     }
-    
 
     private Ingresso createIngresso(ResultSet rs) throws SQLException {
         Ingresso ingresso = new Ingresso();
@@ -100,6 +102,5 @@ public class IngressoDao {
         ingresso.setEvento(evento);
         return ingresso;
     }
-
 
 }

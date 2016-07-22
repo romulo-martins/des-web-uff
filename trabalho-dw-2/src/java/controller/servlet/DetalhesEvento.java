@@ -8,6 +8,7 @@ package controller.servlet;
 import dao.EventoDao;
 import dao.IngressoFactoryDao;
 import java.io.IOException;
+import java.sql.Connection;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,19 +22,21 @@ import model.IngressoFactory;
  *
  * @author Romulo
  */
-
 @WebServlet("/detalhesEvento")
 public class DetalhesEvento extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        
+
+        // obtem da requisição a conexão do banco de dados
+        Connection connection = (Connection) req.getAttribute("conexao");
+
         int id = Integer.parseInt(req.getParameter("id"));
 
         // salva as alteraçõs do cliente
-        Evento evento = new EventoDao().busca(id);
+        Evento evento = new EventoDao(connection).busca(id);
         IngressoFactory factory = new IngressoFactoryDao().getFactory(evento);
-        
+
         req.setAttribute("evento", evento);
         req.setAttribute("ingresso_factory", factory);
 

@@ -19,12 +19,15 @@
     <body>
         <div class="container">
             <h1>Lista de Eventos</h1>
-            <% 
-                Usuario usuario = (Usuario) session.getAttribute("usuario"); 
+            <%
+                Usuario usuario = (Usuario) session.getAttribute("usuario");
                 Carrinho carrinho = (Carrinho) session.getAttribute("carrinho");
             %>
-            <% if (usuario != null) { %>
-                <a href="listar-carrinho.jsp">Meu Carrinho(<%= carrinho.getIngressos().size() %>)</a>
+            <% if (usuario != null) {%>
+            <a href="listar-carrinho.jsp">
+                <span class="glyphicon glyphicon-shopping-cart"></span>
+                Meu Carrinho(<%= carrinho.getIngressos().size()%>)
+            </a>
             <% }%>
             <table class="table">
                 <thead>

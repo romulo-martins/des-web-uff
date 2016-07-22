@@ -7,6 +7,7 @@ package controller.logica;
 
 import dao.EventoDao;
 import dao.IngressoFactoryDao;
+import java.sql.Connection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Carrinho;
@@ -24,7 +25,11 @@ public class AdicionaCarrinhoLogic implements Logica {
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
         Carrinho c = (Carrinho) req.getSession().getAttribute("carrinho");
-        Evento evento = new EventoDao().busca(Integer.parseInt(req.getParameter("id")));
+        
+        // obtem da requisição a conexão do banco de dados
+        Connection connection = (Connection) req.getAttribute("conexao");
+        
+        Evento evento = new EventoDao(connection).busca(Integer.parseInt(req.getParameter("id")));
 
         int qtd = 0;
         for (Ingresso i : c.getIngressos()) {

@@ -29,6 +29,10 @@ public class ClienteDao {
         this.connection = new ConnectionFactory().getConnection();
     }
 
+    public ClienteDao(Connection connection) {
+        this.connection = connection;
+    }
+
     public Cliente busca(int id) {
         String sql = "SELECT * "
                 + "FROM cliente "
@@ -62,7 +66,7 @@ public class ClienteDao {
             stmt.setString(3, cliente.getTelefone());
             stmt.setString(4, cliente.getDataDeNascimento());
             stmt.setInt(5, cliente.getId());
-            
+
             stmt.execute();
             stmt.close();
         } catch (SQLException e) {
@@ -92,7 +96,7 @@ public class ClienteDao {
             throw new RuntimeException(e);
         }
     }
-    
+
     public void closeConnection() {
         try {
             this.connection.close();

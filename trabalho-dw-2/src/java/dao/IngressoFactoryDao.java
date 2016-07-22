@@ -22,12 +22,12 @@ public class IngressoFactoryDao {
     // a conexão com o banco de dados
     private Connection connection;
 
-    public IngressoFactoryDao(Connection connection) {
-        this.connection = connection;
-    }
-
     public IngressoFactoryDao() {
         this.connection = new ConnectionFactory().getConnection();
+    }
+    
+    public IngressoFactoryDao(Connection connection) {
+        this.connection = connection;
     }
 
     public IngressoFactory getFactory(Evento evento) {

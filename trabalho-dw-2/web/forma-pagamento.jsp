@@ -34,7 +34,9 @@
                 <input type="text" name="nseguranca">
 
                 <input type="submit" value="Finalizar Comprar">
-            </form>            
+            </form>    
+            <hr />
+            <a href="listar-carrinho.jsp">Voltar</a>
         </div>
     </body>
 </html>

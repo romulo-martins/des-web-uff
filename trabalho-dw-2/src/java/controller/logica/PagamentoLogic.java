@@ -7,6 +7,7 @@ package controller.logica;
 
 import dao.HistoricoDao;
 import dao.IngressoFactoryDao;
+import java.sql.Connection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Carrinho;
@@ -23,8 +24,11 @@ public class PagamentoLogic implements Logica {
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
         Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
         Carrinho carrinho = (Carrinho) req.getSession().getAttribute("carrinho");
-
-        HistoricoDao dao = new HistoricoDao();
+        
+        // obtem da requisição a conexão do banco de dados
+        Connection connection = (Connection) req.getAttribute("conexao");
+        
+        HistoricoDao dao = new HistoricoDao(connection);
         IngressoFactoryDao factory = new IngressoFactoryDao();
         String msgErro = "";
         String msgSuccess = "";

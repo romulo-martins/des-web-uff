@@ -28,6 +28,10 @@ public class EventoDao {
         this.connection = new ConnectionFactory().getConnection();
     }
 
+    public EventoDao(Connection connection) {
+        this.connection = connection;
+    }
+
     public void adiciona(Evento evento) {
         String sql = "INSERT INTO evento "
                 + "(nome, descricao, data_evento, hora, local_evento)"

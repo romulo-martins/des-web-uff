@@ -7,6 +7,7 @@ package controller.servlet;
 
 import dao.UsuarioDao;
 import java.io.IOException;
+import java.sql.Connection;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,12 +24,17 @@ import model.Usuario;
  */
 @WebServlet("/validaUsuario")
 public class ValidaUsuario extends HttpServlet {
+    
+    private Connection connection;
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher rd;
         String name = req.getParameter("name");
         String password = req.getParameter("password");
+
+        // obtem da requisição a conexão do banco de dados
+        this.connection = (Connection) req.getAttribute("conexao");
 
         Usuario usuario = validateLogin(name, password);
         Carrinho carrinho = new Carrinho();
@@ -49,7 +55,8 @@ public class ValidaUsuario extends HttpServlet {
         if (name == null || password == null) {
             return null;
         }
-        UsuarioDao dao = new UsuarioDao();
+
+        UsuarioDao dao = new UsuarioDao(this.connection);
         Usuario user = dao.getUsuario(name);
 
         if (user == null) {

@@ -1,3 +1,13 @@
+/* Não precisa por enquanto */
+CREATE TABLE Endereco(
+	id INTEGER NOT NULL AUTO_INCREMENT,
+	rua VARCHAR(40),
+	bairro VARCHAR(40),
+	cidade VARCHAR(40),
+	estado VARCHAR(40),
+	complemento VARCHAR(40),
+	PRIMARY KEY(id)
+);
 
 /* criação de clientes */
 CREATE TABLE Cliente (
@@ -17,17 +27,6 @@ CREATE TABLE Usuario(
 	cliente_id INTEGER, 
 	PRIMARY KEY(id),
 	FOREIGN KEY(cliente_id) REFERENCES Cliente(id)
-);
-
-/* Não precisa por enquanto */
-CREATE TABLE Endereco(
-	id INTEGER NOT NULL AUTO_INCREMENT,
-	rua VARCHAR(40),
-	bairro VARCHAR(40),
-	cidade VARCHAR(40),
-	estado VARCHAR(40),
-	complemento VARCHAR(40),
-	PRIMARY KEY(id)
 );
 
 CREATE TABLE Evento (

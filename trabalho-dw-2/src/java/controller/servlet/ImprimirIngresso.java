@@ -13,6 +13,7 @@ import dao.IngressoDao;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.sql.Connection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -30,11 +31,14 @@ import model.Ingresso;
 public class ImprimirIngresso extends HttpServlet {
 
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {        
-        
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        // obtem da requisição a conexão do banco de dados
+        Connection connection = (Connection) req.getAttribute("conexao");
+
         int ingressoId = Integer.parseInt(req.getParameter("id"));
-        Ingresso ingresso = new IngressoDao().busca(ingressoId);        
-        
+        Ingresso ingresso = new IngressoDao(connection).busca(ingressoId);
+
         try {
             ByteArrayOutputStream baos = getBaos(ingresso);
             resp.setHeader("Expires", "0");
@@ -62,7 +66,7 @@ public class ImprimirIngresso extends HttpServlet {
         document.add(new Paragraph("Preço: R$ " + ingresso.getValorPago()));
         document.add(new Paragraph("---------------------"));
         document.close();
-        
+
         return baos;
     }
 }

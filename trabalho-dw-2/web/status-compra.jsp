@@ -15,8 +15,6 @@
     </head>
     <body>
         <div class="container">
-            <% Usuario usuario = (Usuario) session.getAttribute("usuario");%>
-            <p> <%= usuario.getCliente().getNome()%></p>
             <h1>Compra finalizada.</h1>
             <p class="text-success"><%= request.getAttribute("msgSuccess")%></p>
             <p class="text-danger"><%= request.getAttribute("msgErro")%></p>
