@@ -48,6 +48,25 @@ public class IngressoDao {
             throw new RuntimeException(e);
         }
     }
+    
+    public Ingresso busca(int id) {
+                String sql = "SELECT * FROM ingresso WHERE id=?";
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+
+            rs.next();
+            // criando o objeto Contato
+            Ingresso ingresso = createIngresso(rs);
+
+            rs.close();
+            stmt.close();
+            return ingresso;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     public List<Ingresso> getIngressos(int codCompra) {
         List<Ingresso> ingressos = new ArrayList<>();
@@ -81,5 +100,6 @@ public class IngressoDao {
         ingresso.setEvento(evento);
         return ingresso;
     }
+
 
 }

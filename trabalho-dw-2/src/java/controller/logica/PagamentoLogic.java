@@ -24,6 +24,10 @@ public class PagamentoLogic implements Logica{
         
         HistoricoDao dao = new HistoricoDao();
         dao.adicionarCompra(carrinho, usuario.getCliente());
+        
+        // reseta o carrinho
+        carrinho.getIngressos().clear();
+        
         return "compraSuccess.jsp";
     }
     

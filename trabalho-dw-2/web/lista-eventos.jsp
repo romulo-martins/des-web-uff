@@ -4,6 +4,8 @@
     Author     : Romulo
 --%>
 
+<%@page import="model.Carrinho"%>
+<%@page import="model.Usuario"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Evento"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -17,6 +19,13 @@
     <body>
         <div class="container">
             <h1>Lista de Eventos</h1>
+            <% 
+                Usuario usuario = (Usuario) session.getAttribute("usuario"); 
+                Carrinho carrinho = (Carrinho) session.getAttribute("carrinho");
+            %>
+            <% if (usuario != null) { %>
+                <a href="listar-carrinho.jsp">Meu Carrinho(<%= carrinho.getIngressos().size() %>)</a>
+            <% }%>
             <table class="table">
                 <thead>
                     <tr>

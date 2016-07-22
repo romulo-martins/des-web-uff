@@ -4,6 +4,7 @@
     Author     : Romulo
 --%>
 
+<%@page import="model.Carrinho"%>
 <%@page import="model.IngressoFactory"%>
 <%@page import="model.Evento"%>
 <%@page import="model.Usuario"%>
@@ -15,14 +16,20 @@
         <link rel="stylesheet" href="css/bootstrap.css" >
         <title>Detalhes Evento</title>
     </head>
-    <body
+    <body>
         <div class="container">
             <%
                 Usuario usuario = (Usuario) session.getAttribute("usuario");
                 Evento evento = (Evento) request.getAttribute("evento");
                 IngressoFactory factory = (IngressoFactory) request.getAttribute("ingresso_factory");
+                Carrinho carrinho = (Carrinho) session.getAttribute("carrinho");
             %>
             <h1>Detalhes Evento</h1>
+
+            <% if (usuario != null) {%>
+            <p><a href="listar-carrinho.jsp">Meu Carrinho(<%= carrinho.getIngressos().size()%>)</a></p>            
+            <% }%>
+            
             <img src="img/<%= evento.getImagem()%>" width="320" height="240"><br />
             Nome: <%= evento.getNome()%><br />
             Descricao: <%= evento.getDescricao()%><br />
@@ -32,7 +39,7 @@
 
             Valor: <%= factory.getValorIngresso()%> <br />
             Ingressos disponiveis: <%= factory.getQuantidadeIngresso()%> 
-            <% if (usuario != null) { %>
+            <% if (usuario != null) {%>
             <form action="mvc" method="get">
                 <input type="hidden" name="logica" value="AdicionaCarrinhoLogic" >
                 <input type="hidden" name="id" value="<%= evento.getId()%>">
@@ -51,9 +58,6 @@
             <% }%>
             <hr />
             <a href="mvc?logica=ListaEventosLogic">Voltar</a>
-            <% if (usuario != null) { %>
-            | <a href="listar-carrinho.jsp">Meu Carrinho</a>
-            <% }%>
         </div>
     </body>
 </html>

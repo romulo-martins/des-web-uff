@@ -26,19 +26,21 @@
                         <th>Evento</th>
                         <th>Tipo do ingresso</th>
                         <th>Valor do ingresso</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <% for (Ingresso ingresso : ingressos) { %>
+                    <% for (Ingresso ingresso : ingressos) {%>
                     <tr>
-                        <td><%= ingresso.getEvento().getNome() %></td>
-                        <td><%= ingresso.getTipo() %></td>
-                        <td>R$ <%= ingresso.getValorPago() %></td>
+                        <td><%= ingresso.getEvento().getNome()%></td>
+                        <td><%= ingresso.getTipo()%></td>
+                        <td>R$ <%= ingresso.getValorPago()%></td>
+                        <td><a href="imprimirIngresso?id=<%= ingresso.getId() %>">Imprimir</a></td>
                     </tr>
                     <% }%>
                 </tbody>
             </table>
-                <hr />
+            <hr />
             <a href="visualizarHistorico">Voltar</a> 
         </div>
     </body>
