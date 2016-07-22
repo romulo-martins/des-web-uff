@@ -50,7 +50,6 @@ public class IngressoFactory {
         this.evento = evento;
     }
     
-    
     public Ingresso gerarIngresso(TipoIngresso tipo) {
         if(this.quantidadeIngresso > 0) {
             Ingresso ingresso = new Ingresso();
@@ -66,6 +65,4 @@ public class IngressoFactory {
         }
         return null;
     }
-    
-    
 }

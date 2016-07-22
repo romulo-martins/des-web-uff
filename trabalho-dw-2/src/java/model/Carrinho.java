@@ -26,7 +26,7 @@ public class Carrinho {
     public void adicionar(Ingresso ingresso){
         this.ingressos.add(ingresso);
     }
-    public boolean removerTicket(int id) {
+    public boolean remover(int id) {
         for (Ingresso i : ingressos) {
             if (i.getId() == id) {
                ingressos.remove(id);
@@ -34,6 +34,15 @@ public class Carrinho {
             }
         }
         return false;
+    }
+    
+     public Ingresso getIngresso(int id) {
+        for (Ingresso i : ingressos) {
+            if (i.getId() == id) {
+               return i;
+            }
+        }
+        return null;
     }
     
     // valor total da compra

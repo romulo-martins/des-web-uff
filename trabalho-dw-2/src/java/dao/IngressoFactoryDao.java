@@ -60,4 +60,22 @@ public class IngressoFactoryDao {
         return ingressoFactory;
     }
 
+    public void updateEstoque(Evento evento, String tipo) {
+        String sql=null;
+        if (tipo.equals("REMOVER")) {
+            sql = "UPDATE ingresso_factory SET quantidade_ingressos=quantidade_ingressos-1 WHERE evento_id=?";
+        } else if (tipo.equals("ADICIONAR")) {
+            sql = "UPDATE ingresso_factory SET quantidade_ingressos=quantidade_ingressos+1 WHERE evento_id=?";
+        }
+        
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(sql);
+            stmt.setInt(1, evento.getId());
+            stmt.execute();
+            stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }

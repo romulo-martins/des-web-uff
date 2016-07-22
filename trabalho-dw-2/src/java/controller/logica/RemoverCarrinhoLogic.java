@@ -5,26 +5,33 @@
  */
 package controller.logica;
 
-import java.util.List;
+import dao.EventoDao;
+import dao.IngressoFactoryDao;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import model.Carrinho;
-import model.Ticket;
+import model.Evento;
+import model.Ingresso;
 
 /**
  *
  * @author cafer
  */
-public class RemoverCarrinhoLogic implements Logica{
+public class RemoverCarrinhoLogic implements Logica {
 
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
         Carrinho c = (Carrinho) req.getSession().getAttribute("carrinho");
-        
-        c.removerTicket(Integer.parseInt(req.getParameter("id")));
-        
+        Ingresso i = c.getIngresso(Integer.parseInt(req.getParameter("id")));
+        if (i!=null) {
+            Evento evento = new EventoDao().busca(i.getEvento().getId());
+            IngressoFactoryDao f = new IngressoFactoryDao();
+
+            if (c.remover(Integer.parseInt(req.getParameter("id")))) {
+                f.updateEstoque(evento, "ADICIONAR");
+            }
+        }
         return "listar-carrinho.jsp";
     }
-    
+
 }

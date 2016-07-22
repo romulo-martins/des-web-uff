@@ -9,7 +9,6 @@ import dao.HistoricoDao;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Carrinho;
-import model.Cliente;
 import model.Usuario;
 
 /**
