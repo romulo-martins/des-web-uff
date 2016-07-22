@@ -26,14 +26,25 @@ public class AdicionaCarrinhoLogic implements Logica {
         Carrinho c = (Carrinho) req.getSession().getAttribute("carrinho");
         Evento evento = new EventoDao().busca(Integer.parseInt(req.getParameter("id")));
 
+        int qtd = 0;
+        for (Ingresso i : c.getIngressos()) {
+            if (i.getEvento().getId() == evento.getId()) {
+                qtd++;
+            }
+        }
+
         IngressoFactoryDao factory = new IngressoFactoryDao();
         IngressoFactory iFactory = factory.getFactory(evento);
         if (iFactory.getQuantidadeIngresso() > 0) {
-            for (int i = 0; i < Integer.parseInt(req.getParameter("qtd")); i++) {
+            for (int i = 0; i < Integer.parseInt(req.getParameter("qtd")) - qtd; i++) {
                 Ingresso ingresso = iFactory.gerarIngresso(TipoIngresso.getTipo(Integer.parseInt(req.getParameter("TipoEntrada"))));
                 c.adicionar(ingresso);
-                factory.updateEstoque(evento, "REMOVER");
+                //factory.updateEstoque(evento, "REMOVER");
             }
+        }
+        if (Integer.parseInt(req.getParameter("qtd")) + qtd > 4) {
+            int qtdErro = 4 - Math.abs((Integer.parseInt(req.getParameter("qtd")) - qtd));
+            req.setAttribute("qtdErro", qtdErro);
         }
         return "/detalhesEvento?id=" + req.getParameter("id");
     }

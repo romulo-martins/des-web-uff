@@ -23,13 +23,11 @@ public class RemoverCarrinhoLogic implements Logica {
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
         Carrinho c = (Carrinho) req.getSession().getAttribute("carrinho");
         Ingresso i = c.getIngresso(Integer.parseInt(req.getParameter("id")));
-        if (i!=null) {
+        if (i != null) {
             Evento evento = new EventoDao().busca(i.getEvento().getId());
             IngressoFactoryDao f = new IngressoFactoryDao();
-
-            if (c.remover(Integer.parseInt(req.getParameter("id")))) {
-                f.updateEstoque(evento, "ADICIONAR");
-            }
+            c.remover(Integer.parseInt(req.getParameter("id")));
+            // f.updateEstoque(evento, "ADICIONAR");
         }
         return "listar-carrinho.jsp";
     }

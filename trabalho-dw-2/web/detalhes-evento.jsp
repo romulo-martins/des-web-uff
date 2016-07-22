@@ -29,7 +29,7 @@
             <% if (usuario != null) {%>
             <p><a href="listar-carrinho.jsp">Meu Carrinho(<%= carrinho.getIngressos().size()%>)</a></p>            
             <% }%>
-            
+
             <img src="img/<%= evento.getImagem()%>" width="320" height="240"><br />
             Nome: <%= evento.getNome()%><br />
             Descricao: <%= evento.getDescricao()%><br />
@@ -55,6 +55,10 @@
 
                 <input type="submit" value="Adiciona Carrinho">
             </form>
+            <% if (request.getAttribute("qtdErro") != null ) { %>
+            <p class="text-danger">Ingressos acima do limite, <%=request.getAttribute("qtdErro")%>
+                ingressos não puderam ser adicionados.</p>
+            <% } %>
             <% }%>
             <hr />
             <a href="mvc?logica=ListaEventosLogic">Voltar</a>

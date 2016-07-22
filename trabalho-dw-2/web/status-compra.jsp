@@ -11,13 +11,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="css/bootstrap.css" >
-        <title>Logado com sucesso</title>
+        <title>Status da Compra</title>
     </head>
     <body>
         <div class="container">
-            <% Usuario usuario = (Usuario) session.getAttribute("usuario"); %>
-            <p> <%= usuario.getCliente().getNome() %></p>
-            <h1>Compra realizado com Sucesso!</h1>
+            <% Usuario usuario = (Usuario) session.getAttribute("usuario");%>
+            <p> <%= usuario.getCliente().getNome()%></p>
+            <h1>Compra finalizada.</h1>
+            <p class="text-success"><%= request.getAttribute("msgSuccess")%></p>
+            <p class="text-danger"><%= request.getAttribute("msgErro")%></p>
             <a href="bem-vindo.jsp">Pagina principal</a>
         </div>
     </body>

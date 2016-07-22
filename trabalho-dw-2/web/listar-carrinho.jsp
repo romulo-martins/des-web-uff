@@ -5,7 +5,6 @@
 --%>
 
 <%@page import="model.Ingresso"%>
-<%@page import="model.Ticket"%>
 <%@page import="model.Carrinho"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
