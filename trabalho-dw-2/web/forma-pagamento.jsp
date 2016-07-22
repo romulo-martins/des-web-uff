@@ -4,6 +4,7 @@
     Author     : cafer
 --%>
 
+<%@page import="model.Ingresso"%>
 <%@page import="model.Ticket"%>
 <%@page import="model.Carrinho"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -19,12 +20,12 @@
         <%
             Carrinho c = (Carrinho) request.getSession().getAttribute("carrinho");
             int total = 0;
-            for (Ticket ticket : c.getEntrada()) {
-                total += ticket.getPreco();
+            for (Ingresso ingresso : c.getIngressos()) {
+                total += ingresso.getValorPago();
             }
         %>
         <p>Valor total:<%= total%></p>
-        <form action="mvc" method="get">
+        <form action="mvc" method="post">
             <input type="hidden" name="logica" value="PagamentoLogic" >
             Numero cartão:<br>
             <input type="text" name="ncartao"><br>

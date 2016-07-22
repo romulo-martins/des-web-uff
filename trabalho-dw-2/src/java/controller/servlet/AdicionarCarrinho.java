@@ -26,7 +26,7 @@ public class AdicionarCarrinho extends HttpServlet {
   
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        process(req, resp);
+        //process(req, resp);
         EventoDao dao = new EventoDao();
         List<Evento> eventos = dao.getLista();
         req.setAttribute("eventos", eventos);
