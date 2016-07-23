@@ -18,7 +18,7 @@ public class Evento {
     private String data; // muda para Date?
     private String hora; // muda para Date?
     private String imagem;
-    private String local;    
+    private Endereco local;    
     
     public int getId() {
         return id;
@@ -60,11 +60,11 @@ public class Evento {
         this.hora = hora;
     }
 
-    public String getLocal() {
+    public Endereco getLocal() {
         return local;
     }
 
-    public void setLocal(String local) {
+    public void setLocal(Endereco local) {
         this.local = local;
     }
 

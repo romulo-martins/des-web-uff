@@ -42,10 +42,16 @@
             Descricao: <%= evento.getDescricao()%><br />
             Data: <%= evento.getData()%><br />
             Hora: <%= evento.getHora()%><br />
-            Local: <%= evento.getLocal()%><br />
-
             Valor: <%= factory.getValorIngresso()%> <br />
             Ingressos disponiveis: <%= factory.getQuantidadeIngresso()%> 
+            
+            <h4>Endereco</h4>
+            Rua: <%= evento.getLocal().getRua() %><br />
+            Bairro: <%= evento.getLocal().getBairro() %><br />
+            Cidade: <%= evento.getLocal().getCidade() %><br />
+            Estado: <%= evento.getLocal().getEstado() %><br />
+            Complemento: <%= evento.getLocal().getComplemento() %><br />
+
             <% if (usuario != null) {%>
             <form action="mvc" method="get">
                 <input type="hidden" name="logica" value="AdicionaCarrinhoLogic" >
@@ -65,6 +71,7 @@
             <% }%>
             <hr />
             <a href="mvc?logica=ListaEventosLogic">Voltar</a>
+            <br />
         </div>
     </body>
 </html>

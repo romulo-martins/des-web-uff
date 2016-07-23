@@ -27,7 +27,7 @@ public class EnderecoDao {
     }
 
     public void adiciona(Endereco endereco) {
-        String sql = "INSERT INTO enderecos "
+        String sql = "INSERT INTO endereco "
                 + "(rua, bairro, cidade, estado, complemento)"
                 + " VALUES (?, ?, ?, ?, ?)";
 
@@ -51,7 +51,7 @@ public class EnderecoDao {
     }
 
     public void altera(Endereco endereco) {
-        String sql = "UPDATE enderecos SET rua=?, bairro=?,"
+        String sql = "UPDATE endereco SET rua=?, bairro=?,"
                 + "cidade=?, estado=?, complemento=? WHERE id=?";
 
         try {
@@ -74,7 +74,7 @@ public class EnderecoDao {
     }
 
     public void remove(Endereco endereco) {
-        String sql = "DELETE FROM enderecos WHERE id=?";
+        String sql = "DELETE FROM endereco WHERE id=?";
 
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -90,7 +90,7 @@ public class EnderecoDao {
 
     // faz a pesquisa pelo id
     public Endereco busca(int id) {
-        String sql = "SELECT * FROM enderecos WHERE id=?";
+        String sql = "SELECT * FROM endereco WHERE id=?";
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
             stmt.setInt(1, id);
@@ -111,7 +111,7 @@ public class EnderecoDao {
 
     public List<Endereco> getLista() {
         List<Endereco> enderecos = new ArrayList<>();
-        String sql = "SELECT * FROM enderecos";
+        String sql = "SELECT * FROM endereco";
 
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);

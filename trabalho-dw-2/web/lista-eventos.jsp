@@ -36,7 +36,6 @@
                         <th>Descricao</th>
                         <th>Data</th>
                         <th>Hora</th>
-                        <th>Local</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -51,7 +50,6 @@
                         <td><%= evento.getDescricao()%></td>
                         <td><%= evento.getData()%></td>
                         <td><%= evento.getHora()%></td>
-                        <td><%= evento.getLocal()%></td>
                         <td>
                             <a href="detalhesEvento?id=<%= evento.getId()%>">Detalhes</a>
                         </td>

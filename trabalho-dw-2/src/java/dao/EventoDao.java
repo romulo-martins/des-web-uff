@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jdbc.ConnectionFactory;
+import model.Endereco;
 import model.Evento;
 
 /**
@@ -46,7 +47,7 @@ public class EventoDao {
             stmt.setString(2, evento.getDescricao());
             stmt.setString(3, evento.getData());
             stmt.setString(4, evento.getHora());
-            stmt.setString(5, evento.getLocal());
+            stmt.setInt(5, evento.getLocal().getId());
 
             // executa
             stmt.execute();
@@ -132,7 +133,9 @@ public class EventoDao {
         evento.setData(rs.getString("data_evento"));
         evento.setHora(rs.getString("hora"));
         evento.setImagem(rs.getString("imagem"));
-        evento.setLocal(rs.getString("local_evento"));
+        int enderecoId = Integer.parseInt(rs.getString("endereco_id"));
+        Endereco endereco = new EnderecoDao(this.connection).busca(enderecoId);
+        evento.setLocal(endereco);
         return evento;
     }
 

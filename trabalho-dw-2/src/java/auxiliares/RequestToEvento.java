@@ -37,7 +37,7 @@ public class RequestToEvento {
         evento.setNome(nome);
         evento.setDescricao(descricao);
         evento.setHora(hora);
-        evento.setLocal(local);
+        //evento.setLocal(local);
         
         return evento;
     }

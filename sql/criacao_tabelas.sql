@@ -36,8 +36,9 @@ CREATE TABLE Evento (
 	data_evento VARCHAR(40),
 	hora VARCHAR(20),
 	imagem VARCHAR(40),
-	local_evento VARCHAR(100),
-    PRIMARY KEY (id)
+	endereco_id INTEGER,
+    PRIMARY KEY (id),
+	FOREIGN KEY(endereco_id) REFERENCES Endereco(id)
 );
 
 CREATE TABLE Historico (
