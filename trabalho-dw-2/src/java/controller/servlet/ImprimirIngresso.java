@@ -60,11 +60,15 @@ public class ImprimirIngresso extends HttpServlet {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         PdfWriter.getInstance(document, baos);
         document.open();
-        document.add(new Paragraph("----- Ingresso ----- "));
+        document.add(new Paragraph("---------- Ingresso ----------"));
         document.add(new Paragraph("Artista: " + ingresso.getEvento().getNome()));
+        document.add(new Paragraph("Descricao: " + ingresso.getEvento().getDescricao()));
+        document.add(new Paragraph("Hora: " + ingresso.getEvento().getHora()));
+        document.add(new Paragraph("Data: " + ingresso.getEvento().getData()));
+        document.add(new Paragraph("Local: " + ingresso.getEvento().getLocal()));
         document.add(new Paragraph("Tipo: " + ingresso.getTipo()));
         document.add(new Paragraph("Preço: R$ " + ingresso.getValorPago()));
-        document.add(new Paragraph("---------------------"));
+        document.add(new Paragraph("------------------------------"));
         document.close();
 
         return baos;

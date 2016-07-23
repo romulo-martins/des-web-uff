@@ -16,9 +16,22 @@
     <body>
         <div class="container">
             <h1>Compra finalizada.</h1>
-            <p class="text-success"><%= request.getAttribute("msgSuccess")%></p>
-            <p class="text-danger"><%= request.getAttribute("msgErro")%></p>
-            <a href="bem-vindo.jsp">Pagina principal</a>
+            <%
+                String msgSucesso = (String) request.getAttribute("msgSuccess");
+                String msgErro = (String) request.getAttribute("msgErro");
+            %>
+            <% if (msgSucesso != null) {%>
+            <div class="alert-success" role="alert"><%= msgSucesso%></div>
+            <% }%>
+
+            <% if (msgSucesso != null) {%>
+            <div class="alert-danger" role="alert"><%= msgErro%></div>
+            <% }%>
+
+            <p>Para imprimir seus ingressos, visualize seu histórico!</p>
+            <hr />
+            <a href="bem-vindo.jsp">Pagina principal</a> |
+            <a href="visualizarHistorico">Historico</a>
         </div>
     </body>
 </html>
