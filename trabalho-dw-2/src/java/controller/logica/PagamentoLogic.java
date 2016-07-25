@@ -25,12 +25,17 @@ public class PagamentoLogic implements Logica {
 
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse res) throws Exception {
+        if (req.getParameter("ncartao").isEmpty()  || req.getParameter("nseguranca").isEmpty()) {
+            String msgObg = "Preencha os campos obrigatórios.";
+            req.setAttribute("msgObg", msgObg);
+            return "forma-pagamento.jsp";
+        }
         Usuario usuario = (Usuario) req.getSession().getAttribute("usuario");
         Carrinho carrinho = (Carrinho) req.getSession().getAttribute("carrinho");
-        
+
         // obtem da requisição a conexão do banco de dados
         Connection connection = (Connection) req.getAttribute("conexao");
-        
+
         HistoricoDao dao = new HistoricoDao(connection);
         IngressoFactoryDao factory = new IngressoFactoryDao();
         List<Ingresso> auxCarrinho = new ArrayList<>();
@@ -39,16 +44,16 @@ public class PagamentoLogic implements Logica {
         String msgCarrinho = "";
         int qtd = 0;
         int qtdTotal;
-        
-        
+
         for (Ingresso i : carrinho.getIngressos()) {
-            qtdTotal = qtdIngresso(carrinho, i.getEvento().getId()) + 
-                        dao.getQtdEvento(usuario.getCliente().getId(), i.getEvento().getId());
-            if( qtdTotal > 4){
-                auxCarrinho.addAll(removerIngresso(carrinho, i.getEvento().getId()));
-                msgCarrinho += "Alguns Ingressos excederam o limite permitido, verifique seu Carrinho e seu Histórico ";
+            qtdTotal = qtdIngresso(carrinho, i.getEvento().getId())
+                    + dao.getQtdEvento(usuario.getCliente().getId(), i.getEvento().getId());
+            if (qtdTotal > 4) {
+                auxCarrinho.add(i);
+                msgCarrinho += "<br>O Evento não pode ser comprado:" + i.getEvento().getNome() + "</br>";
             }
         }
+        carrinho.getIngressos().removeAll(auxCarrinho);
 
         dao.adicionarCompra(carrinho, usuario.getCliente());
         for (Ingresso i : carrinho.getIngressos()) {
@@ -77,16 +82,5 @@ public class PagamentoLogic implements Logica {
             }
         }
         return qtd;
-    }
-
-    private List<Ingresso> removerIngresso(Carrinho carrinho, int idEvento) {
-        List<Ingresso> auxCarrinho = new ArrayList<>();
-        for (Ingresso i : carrinho.getIngressos()) {
-            if (i.getEvento().getId() == idEvento) {
-                auxCarrinho.add(i);
-                carrinho.getIngressos().remove(i);
-            }
-        }
-        return auxCarrinho;
     }
 }

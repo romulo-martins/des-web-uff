@@ -40,7 +40,11 @@
             <% }%>
 
             <% if (msgCarrinho != null) {%>
-            <div class="alert-danger" role="alert"><%= msgCarrinho%></div>
+            
+            <div class="alert-danger" role="alert">
+                <p>Alguns Ingressos excederam o limite permitido, verifique seu Carrinho e seu Histórico</p>
+                <%= msgCarrinho%>
+            </div>
             <% }%>
 
             <p>Para imprimir seus ingressos, visualize seu histórico!</p>
