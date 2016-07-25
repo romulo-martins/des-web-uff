@@ -16,6 +16,7 @@ import java.util.List;
 import jdbc.ConnectionFactory;
 import model.Carrinho;
 import model.Cliente;
+import model.Evento;
 import model.Historico;
 import model.Ingresso;
 
@@ -38,7 +39,7 @@ public class HistoricoDao {
     public void adicionarCompra(Carrinho carrinho, Cliente cliente) {
         String sql = "INSERT INTO historico(data_compra, valor_compra, cod_compra, cliente_id) "
                 + "VALUES(?, ?, ?, ?)";
-        
+
         Date dataAtual = new Date(Calendar.getInstance().getTimeInMillis());
         int codigoCompra = getCodigoCompra(cliente.getId(), carrinho.valorCompra(), dataAtual);
         try {
@@ -57,9 +58,9 @@ public class HistoricoDao {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        
+
         IngressoDao dao = new IngressoDao();
-        for(Ingresso ingresso : carrinho.getIngressos()) {
+        for (Ingresso ingresso : carrinho.getIngressos()) {
             ingresso.setCodCompra(codigoCompra);
             dao.adiciona(ingresso);
         }
@@ -98,5 +99,24 @@ public class HistoricoDao {
 
     private int getCodigoCompra(int id, double valorCompra, Date dataAtual) {
         return Math.abs((id + valorCompra + dataAtual.toString()).hashCode());
+    }
+
+    public int getQtdEvento(int idCliente, int idEvento) {
+        String sql = "SELECT COUNT(*) qtd FROM HISTORICO H INNER JOIN INGRESSO I ON H.cod_compra = I.cod_compra WHERE H.cliente_id = ? AND I.evento_id = ?";
+        int qtdIngresso = 0;
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(sql);
+            stmt.setInt(1, idCliente);
+            stmt.setInt(2,idEvento);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            qtdIngresso = rs.getInt("qtd");
+            rs.close();
+            stmt.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return qtdIngresso;
     }
 }
